@@ -12,6 +12,34 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+		#output 
+		{
+			background-color: #ffffff;
+			margin-top: 20px;
+			padding-bottom: 20px;
+			width: 90%;
+			margin: 0 auto;	
+			border: 5px double black;
+		}
+		img 
+		{
+			float: left;
+			margin-left: 30px;
+			margin-right: 20px;
+			border: single;
+			width: 204px;
+			height: 250px;
+			margin-bottom: 20px;
+		}
+		h2 {
+		margin-top: 20px;
+		}	
+		h4 {
+		font-style: italic;
+		margin-top: -15px;
+		}	
+		</style>
 	</head>
 	<body class="subpage">
 		<div id="page-wrapper">
@@ -47,18 +75,14 @@
 						<div class="container">
 							<div class="row">
 								<div class="12u">
-
 									<!-- Main Content -->
-										<section>
-											<header>
-												<h2>Single Book</h2>
-												<h3>by IT Ebooks</h3>
-											</header>
-											<p>
-												
-											</p>
-										</section>
-
+									<section>
+										<header>
+											<h2>Single Book</h2>
+											<h3>by IT Ebooks</h3>
+										</header>
+											<div id="output"/>
+									</section>
 								</div>
 							</div>
 						</div>
@@ -70,62 +94,59 @@
 					<footer id="footer" class="container">
 						<div class="row">
 							<div class="8u 12u(mobile)">
-
 								<!-- Links -->
-									<section>
-										<h2>Links to Important Stuff</h2>
-										<div>
-											<div class="row">
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://www.facebook.com/KhaoticReaper" target="_blank">Facebook</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://twitter.com/khaotickhan" target="_blank">Twitter</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://plus.google.com/+FarhanKhanKR" target="_blank">Google +</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://www.twitch.tv/khaoticreaper" target="_blank">Twitch</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="mailto:fkhan13@students.kennesaw.edu" target="_blank">Contact me</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="tel:+1-800-222-2222">Call me</a></li>
-														<li></li>
-													</ul>
-												</div>
+								<section>
+									<h2>Links to Important Stuff</h2>
+									<div>
+										<div class="row">
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://www.facebook.com/KhaoticReaper" target="_blank">Facebook</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://twitter.com/khaotickhan" target="_blank">Twitter</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://plus.google.com/+FarhanKhanKR" target="_blank">Google +</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://www.twitch.tv/khaoticreaper" target="_blank">Twitch</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="mailto:fkhan13@students.kennesaw.edu" target="_blank">Contact me</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="tel:+1-800-222-2222">Call me</a></li>
+													<li></li>
+												</ul>
 											</div>
 										</div>
-									</section>
+									</div>
+								</section>
 							</div>
 						</div>
 					</footer>
 				</div>
-
-			<!-- Copyright -->
+				<!-- Copyright -->
 				<div id="copyright">
 					2017&copy; Farhan Khan Web Projects. All rights reserved. | Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>
 				</div>
 		</div>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -133,6 +154,27 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+			<script>
+			$(function() {
+				var json = {
+					"Error": "0",
+					"Time": 0.0223,
+					"ID": 1425607065,
+					"Title": "PHP Web Services",
+					"SubTitle": "APIs for the Modern Web",
+					"Description": "Whether you’re sharing data between two internal systems or building an API so users can access their data, this practical book provides everything you need to build web service APIs with PHP. Author Lorna Jane Mitchell uses code samples, real-world examples, and advice based on her extensive experience to guide you through the process—from the underlying theory to methods for making your service robust. <br/> PHP is ideally suited for both consuming and creating web services. You’ll learn how to use this language with JSON, XML, and other web service technologies. <ol><li>Explore HTTP, from the request/response cycle to its verbs, headers, and cookies</li><li> Determine whether JSON or XML is the best data format for your application </li><li>Get practical advice for working with RPC, SOAP, and RESTful services</li><li>Use a variety of tools and techniques for debugging HTTP web services</li><li> Choose the service that works best for your application, and learn how to make it robust</li><li> Learn how to document your API—and how to design it to handle errors</li></ol>",
+					"Author": "Lorna Jane Mitchell",
+					"ISBN": "9781449356569",
+					"Year": "2013",
+					"Page": "264",
+					"Publisher": "O'Reilly Media; 1 edition",
+					"Image": "http://s.it-ebooks-api.info/3/php_web_services.jpg",
+					"Link": "http://www.oreilly.com/catalog/errata.csp?isbn=9781449356569"
+				}
+				
+				var single_book = "<img src='" + json.Image + "'><h2><b>" + json.Title + ":</h2><h4><em>" + json.SubTitle + "</em></h4></b><b>Author: </b>" + json.Author + "<br/><b>Publisher: </b>" + json.Publisher + "<br/><b>Published Year: </b>" + json.Year + ";<br/><b>Number of Pages: </b>" + json.Page + "<br/><b>Book ID: </b>" + json.ID + "<br/><b>ISBN: </b>" + json.ISBN + "<br/><br/><b>&nbsp;Description: </b><em>" + json.Description + "</em></div><p><b>Puchase Link: </b>&nbsp;&nbsp;<a href='" + json.Link + "'>" + json.Link + "</a></p>";
+				$("#output").append(single_book);
+			})					
+			</script>	
 	</body>
 </html>
