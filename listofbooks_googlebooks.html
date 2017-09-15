@@ -12,6 +12,48 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+		
+		#items
+		{
+		background-color: #ffffff;
+			margin-top: 10px;
+			padding-bottom: 30px;
+			width: 90%;
+			margin: 0 auto;	
+			border: 10px double gray;
+		}
+		img 
+		{
+			
+			margin-left: 30px;
+			margin-right: 20px;
+			border: double;
+			width: 204px;
+			height: 250px;
+			margin-bottom: 20px;
+		}
+		b
+		{
+		font-weight: 600;
+		}
+		p
+		{
+		border: 2px double gray;
+		}
+		ul.a 
+		{
+		position: relative;
+		list-style-type: circle;
+		left: 50px;
+		}
+		ol.b
+		{
+		position: relative;
+		list-style-type: square;
+		left: 50px;
+		}
+		</style>
 	</head>
 	<body class="subpage">
 		<div id="page-wrapper">
@@ -47,18 +89,16 @@
 						<div class="container">
 							<div class="row">
 								<div class="12u">
-
-									<!-- Main Content -->
-										<section>
-											<header>
-												<h2>List of Books</h2>
-												<h3>by Google Books</h3>
-											</header>
-											<p>
-												
-											</p>
-										</section>
-
+								<!-- Main Content -->
+								<section>
+									<header>
+										<h2>List of Books</h2>
+										<h3>by Google Books</h3>
+									<br/>
+									<h4> <a href="Milestone1.html">Previous Page </a></h4>
+									</header>
+									<div id = "items"></div>											
+									</section>
 								</div>
 							</div>
 						</div>
@@ -71,50 +111,50 @@
 						<div class="row">
 							<div class="8u 12u(mobile)">
 
-								<!-- Links -->
-									<section>
-										<h2>Links to Important Stuff</h2>
-										<div>
-											<div class="row">
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://www.facebook.com/KhaoticReaper" target="_blank">Facebook</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://twitter.com/khaotickhan" target="_blank">Twitter</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://plus.google.com/+FarhanKhanKR" target="_blank">Google +</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://www.twitch.tv/khaoticreaper" target="_blank">Twitch</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="mailto:fkhan13@students.kennesaw.edu" target="_blank">Contact me</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="tel:+1-800-222-2222">Call me</a></li>
-														<li></li>
-													</ul>
-												</div>
+							<!-- Links -->
+								<section>
+									<h2>Links to Important Stuff</h2>
+									<div>
+										<div class="row">
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://www.facebook.com/KhaoticReaper" target="_blank">Facebook</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://twitter.com/khaotickhan" target="_blank">Twitter</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://plus.google.com/+FarhanKhanKR" target="_blank">Google +</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://www.twitch.tv/khaoticreaper" target="_blank">Twitch</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="mailto:fkhan13@students.kennesaw.edu" target="_blank">Contact me</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="tel:+1-800-222-2222">Call me</a></li>
+													<li></li>
+												</ul>
 											</div>
 										</div>
-									</section>
+									</div>
+								</section>
 							</div>
 						</div>
 					</footer>
@@ -133,6 +173,70 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script>
+			$(document).ready(function() {
+			
+               $.getJSON('https://www.googleapis.com/books/v1/volumes?q=modern%20web', function(data) {
 
+                   var data_from_file=""; 
+                    for (i in data.items)
+                        {
+                              data_from_file+='<h2>'+ data.items[i].volumeInfo.title + '</h2>' + 
+							  '<h3>' + data.items[i].volumeInfo.subtitle + '</h3>' + 
+							  '<br/><img class="image" src="' + data.items[i].volumeInfo.imageLinks.thumbnail + '">' + 
+							  '<br/><b><u> Description: </u></b>' + data.items[i].volumeInfo.description + 
+							  '<br/><b><u> Authors: </u></b>' + data.items[i].volumeInfo.authors + 
+							  '<br/><b><u> Published Date: </u></b>' + data.items[i].volumeInfo.publishedDate + 
+							  '<br/><b><u> Page Count: </u></b>' + data.items[i].volumeInfo.pageCount + 
+							  '<br/><a href="' + data.items[i].selfLink + '">Self Link</a>' + 
+							  '<h3> Other Related Information:</h3>' +							  
+							  '<ul class ="a"><br/><li>Industry:</li>' +
+							  '<ol class ="b"><li> Identifier Type 1: '+data.items[i].volumeInfo.industryIdentifiers[0].type + '</li>' +
+							  '<li> Identifier 1: '+data.items[i].volumeInfo.industryIdentifiers[0].identifier+ '</li>' +
+							  '<li> Identifier Type 2: '+ data.items[i].volumeInfo.industryIdentifiers[1].type + '</li>' +
+							  '<li> Identifier 2: ' + data.items[i].volumeInfo.industryIdentifiers[1].identifier+ '</li></ol>' +
+							  '<li>Reading Mode:</li>' +
+							  '<ol class ="b"><li> Text: ' + data.items[i].volumeInfo.readingModes.text + '</li>' +
+							  '<li> Image: ' + data.items[i].volumeInfo.readingModes.image + '</li></ol>' +							  
+							  '<br/><li> Related Links </li>' +
+							  '<ol class="b"><li><a class="paragraphs" href="' + data.items[i].volumeInfo.previewLink + 
+							  '">Preview Link</a></li><li>' + 
+							  '<a class="paragraphs" href="' + data.items[i].volumeInfo.infoLink + '">Info Link</a></li><li>' + 
+							  '<a class="paragraphs" href="' + data.items[i].volumeInfo.canonicalVolumeLink + 
+							  '">Canonical Volume Link</a></li></ol>' + 
+							  '<li>Sales Info:</li>' +
+							  '<ol class ="b"><li> Country: ' + data.items[i].saleInfo.country + '</li>' +
+							  '<li> Saleability: ' + data.items[i].saleInfo.saleability + '</li>' +
+							  '<li> Ebook?: ' + data.items[i].saleInfo.isEbook + '</li></ol>' +
+							  '<li>Access Info:</li>' +
+							  '<ol class ="b"><li> Access Info Country: ' + data.items[i].accessInfo.country + '</li>' +
+							  '<li>Viewability: ' + data.items[i].accessInfo.viewability + '</li>' +
+							  '<li> Is it Embeddable: ' + data.items[i].accessInfo.embeddable + '</li>' +
+							  '<li> Publid Domain: ' + data.items[i].accessInfo.publicDomain + '</li>' +
+							  '<li> Text to Speech: '+ data.items[i].accessInfo.textToSpeechPermission + '</li>' +
+							  '<li> Is EPUB Available: ' + data.items[i].accessInfo.epub.isAvailable + '</li>' +
+							  '<li> Is PDF Available: ' + data.items[i].accessInfo.pdf.isAvailable + '</li>' +
+							  '<li><a class="paragraphs" href="' + data.items[i].accessInfo.webReaderLink + '">Web Reader Link</a></li>' + 
+							  '<li> Access View Status: ' + data.items[i].accessInfo.accessViewStatus + '</li>' +
+							  '<li> Quote Sharing Allowed: ' + data.items[i].accessInfo.quoteSharingAllowed + '</li></ol>' +
+							  '<li> More Information </li>' +
+							  '<ol class="b"><li> Kind: ' + data.items[i].kind + '</li>' +
+							  '<li> ID: ' + data.items[i].id + '</li>' +
+							  '<li> ETAG: ' + data.items[i].etag + '</li>' +
+							  '<li> Print Type: ' + data.items[i].volumeInfo.printType + '</li>' +
+							  '<li> Average Rating: ' + data.items[i].volumeInfo.averageRating + '</li>' +
+							  '<li> Ratings Count: ' + data.items[i].volumeInfo.ratingsCount + '</li>' +
+							  '<li> Maturity Rating: ' + data.items[i].volumeInfo.maturityRating + '</li>' +
+							  '<li> Allow Anon Logging: ' + data.items[i].volumeInfo.allowAnonLogging + '</li>' +
+							  '<li> Content Version: ' + data.items[i].volumeInfo.contentVersion + '</li>' +							  
+							  '<li> Language: ' + data.items[i].volumeInfo.language + '</li></ol></ul>' + 
+							  '</p>';
+                        }
+                    $('#items').html(data_from_file);
+                 });
+            });
+      
+  </script>
 	</body>
 </html>
