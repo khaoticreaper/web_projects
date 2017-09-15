@@ -149,27 +149,27 @@
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/skel-viewport.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-				$.getJSON('http://it-ebooks-api.info/v1/search/modern%20web', function(jsonfile) 
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/skel-viewport.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			$.getJSON('http://it-ebooks-api.info/v1/search/modern%20web', function(jsonfile) 
+			{
+				$.each(jsonfile.Books, function()
 				{
-					$.each(jsonfile.Books, function()
-					{
-						$('<br><div class="results"></div>').append
-						('<div id="books">' +
-						'<br><img src="' + this.Image + '">' +
-						'<h2><u>' + this.Title + ':</u></h2>' + '<h4>' + this.SubTitle + '</h4>' + 
-						'<b><u>ID Number:</u>&nbsp;</b>' + this.ID +'&nbsp;&nbsp;&nbsp;&nbsp;' + 
-						'<br><b><u>ISBN:</u>&nbsp;</b>' + this.isbn +
-						'<p class="description"><b><u>Description:</u>&nbsp;</b><em>' + this.Description + '</em></p>' +
-						'<br></div>'
-						).appendTo("section");											
-					})
-				});					
-			</script>
+					$('<br><div class="results"></div>').append
+					('<div id="books">' +
+					'<br><img src="' + this.Image + '">' +
+					'<h2><u>' + this.Title + ':</u></h2>' + '<h4>' + this.SubTitle + '</h4>' + 
+					'<b><u>ID Number:</u>&nbsp;</b>' + this.ID +'&nbsp;&nbsp;&nbsp;&nbsp;' + 
+					'<br><b><u>ISBN:</u>&nbsp;</b>' + this.isbn +
+					'<p class="description"><b><u>Description:</u>&nbsp;</b><em>' + this.Description + '</em></p>' +
+					'<br></div>'
+					).appendTo("section");											
+				})
+			});					
+		</script>
 	</body>
 </html>
