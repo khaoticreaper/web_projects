@@ -167,11 +167,12 @@
 					var data_from_file="";
 						for (i in data.Books)
 						{
-						 data_from_file += '<br><img src="' + data.Books[i].Image + '">' +
-					'<h2><u>' + data.Books[i].Title + ':</u></h2>' + '<h4>' + data.Books[i].SubTitle + '</h4>' + 
-					'<b><u>ID Number:</u>&nbsp;</b>' + data.Books[i].ID +'&nbsp;&nbsp;&nbsp;&nbsp;' + 
-					'<br><b><u>ISBN:</u>&nbsp;</b>' + this.isbn +
-					'<br/><b><u>Description:</u>&nbsp;</b>' + data.Books[i].Description + '<br/><br/><br/></p>';
+						 data_from_file += '<br><img src="' + data.Books[i].Image + '"/>' +
+						'<h2><u>' + data.Books[i].Title + ':</u></h2>' + 
+						'<h4>' + data.Books[i].SubTitle + '</h4>' + 
+						'<b><u>ID Number:</u>&nbsp;</b>' + data.Books[i].ID +'&nbsp;&nbsp;&nbsp;&nbsp;' + 
+						'<br><b><u>ISBN:</u>&nbsp;</b>' + this.isbn +
+						'<br/><b><u>Description:</u>&nbsp;</b>' + data.Books[i].Description + '<br/><br/><br/></p>';
 						}										
 						$('#output').html(data_from_file);
 					});

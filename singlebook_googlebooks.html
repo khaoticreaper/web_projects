@@ -12,6 +12,51 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+		
+		img 
+		{
+			float: left;
+			margin-left: 30px;
+			margin-right: 20px;
+			border: single;
+			width: 204px;
+			height: 250px;
+			margin-bottom: 20px;
+		}
+		h2 {
+		margin-top: 20px;
+		}	
+		h4 {
+		font-style: italic;
+		margin-top: -15px;
+		}	
+		b
+		{
+		font-weight: 600;
+		}
+		.description 
+		{			
+			margin-right: 50px;
+		}
+				ul.a 
+		{
+		position: relative;
+		list-style-type: circle;
+		left: 50px;
+		}
+		ol.b
+		{
+		position: relative;
+		list-style-type: square;
+		left: 50px;
+		}
+		li.c
+		{
+		position: relative;
+		left: 50px;
+		}
+		</style>
 	</head>
 	<body class="subpage">
 		<div id="page-wrapper">
@@ -35,6 +80,7 @@
 										<a href="FinalProject.html">Final Project</a>
 										<a href="ExtraLab.html">Extra Lab</a>
 									</nav>
+
 							</div>
 						</div>
 					</header>
@@ -46,18 +92,14 @@
 						<div class="container">
 							<div class="row">
 								<div class="12u">
-
 									<!-- Main Content -->
-										<section>
-											<header>
-												<h2>Single Book</h2>
-												<h3>by Google Books</h3>
-											</header>
-											<p>
-												
-											</p>
-										</section>
-
+									<section>
+										<header>
+											<h2>Single Book</h2>
+											<h3>by Google Books</h3>
+										</header>
+											<div id="output"/>
+									</section>
 								</div>
 							</div>
 						</div>
@@ -69,69 +111,134 @@
 					<footer id="footer" class="container">
 						<div class="row">
 							<div class="8u 12u(mobile)">
-
 								<!-- Links -->
-									<section>
-										<h2>Links to Important Stuff</h2>
-										<div>
-											<div class="row">
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://www.facebook.com/KhaoticReaper" target="_blank">Facebook</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://twitter.com/khaotickhan" target="_blank">Twitter</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://plus.google.com/+FarhanKhanKR" target="_blank">Google +</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="https://www.twitch.tv/khaoticreaper" target="_blank">Twitch</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="mailto:fkhan13@students.kennesaw.edu" target="_blank">Contact me</a></li>
-														<li></li>
-													</ul>
-												</div>
-												<div class="2u 12u(mobile)">
-													<ul class="link-list last-child">
-														<li><a href="tel:+1-800-222-2222">Call me</a></li>
-														<li></li>
-													</ul>
-												</div>
+								<section>
+									<h2>Links to Important Stuff</h2>
+									<div>
+										<div class="row">
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://www.facebook.com/KhaoticReaper" target="_blank">Facebook</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://twitter.com/khaotickhan" target="_blank">Twitter</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://plus.google.com/+FarhanKhanKR" target="_blank">Google +</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="https://www.twitch.tv/khaoticreaper" target="_blank">Twitch</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="mailto:fkhan13@students.kennesaw.edu" target="_blank">Contact me</a></li>
+													<li></li>
+												</ul>
+											</div>
+											<div class="2u 12u(mobile)">
+												<ul class="link-list last-child">
+													<li><a href="tel:+1-800-222-2222">Call me</a></li>
+													<li></li>
+												</ul>
 											</div>
 										</div>
-									</section>
+									</div>
+								</section>
 							</div>
 						</div>
 					</footer>
 				</div>
-
-			<!-- Copyright -->
+				<!-- Copyright -->
 				<div id="copyright">
 					2017&copy; Farhan Khan Web Projects. All rights reserved. | Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>
 				</div>
 		</div>
-
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/skel-viewport.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/skel-viewport.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			 $(document).ready(function() {			
+               $.getJSON('https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC', function(data) 
+			   {
+                   $('#output').html('<h2>' + data.volumeInfo.title + '</h2>');
+                   $('#output').append('<h4>&nbsp;&nbsp;&nbsp;' + data.volumeInfo.subtitle+ '</h4>' +
+                   '<img src=' + data.volumeInfo.imageLinks.thumbnail + '/>' + data.volumeInfo.description + 
+                   '<ul><li class="c">Authors: ' + data.volumeInfo.authors + '</li>' +
+				   '<li class="c"> Publisher: ' + data.volumeInfo.publisher + '</li>' +
+                   '<li class="c"> Published Date: ' + data.volumeInfo.publisedDate + '</li>' +
+				   '<li class="c"> PageCount: ' + data.volumeInfo.pageCount + '</li>' +
+				   '<li class="c"> PrintedPageCount: ' + data.volumeInfo.printedPageCount + '</li>' +
+				   '<li class="c"> PrintType: ' + data.volumeInfo.printType + '</li>' +
+				   '<li class="c"> ContentVersion: ' + data.volumeInfo.contentVersion + '</li></ul>');
+				   
+                   $('#output').append('<ul class ="a"><li><h3> Other Related Information:</h3></li>' +
+                   '<ol class="b"><li>ID: ' + data.id + '</li>' +
+                   '<li>Kind: ' + data.kind + '</li>' +
+                   '<li>Etag: ' + data.etag +          '</li>' +          
+				   '<li>Category: ' + data.volumeInfo.categories + '</li>' +
+                   '<li>AverageRating: ' + data.volumeInfo.averageRating + '</li>' +
+                   '<li>RatingCount: ' + data.volumeInfo.ratingsCount + '</li>' +
+                   '<li>MaturityRating: ' + data.volumeInfo.maturityRating + '</li>' +
+                   '<li>AllowAnonLogging: ' + data.volumeInfo.allowAnonLogging + '</li>' +
+				   '<li>Language: ' + data.volumeInfo.language + '</li>' +
+                   '<li>LayerID: ' + data.layerInfo.layers.layerId + '</li>' +
+                   '<li>VolumeAnnotationVer: ' + data.layerInfo.layers.volumeAnnotationsVersion + '</li>' +
+                   '<li>saleInfoCountry ' + data.saleInfo.country + '</li>' +
+                   '<li>Saleability: ' + data.saleInfo.saleability + '</li>' +
+                   '<li>IsEbook: ' + data.saleInfo.isEbook + '</li>' +
+				   '<li>AcessInfoCountry ' + data.accessInfo.country + '</li>' +
+                   '<li>Viewability ' + data.accessInfo.viewability + '</li>' +
+                   '<li>Embeddable ' + data.accessInfo.embeddable + '</li>' +
+                   '<li>Public Domain ' + data.accessInfo.publicDomain + '</li>' +
+                   '<li>Text to Speech ' + data.accessInfo.textToSpeechPermission + '</li>' +
+                   '<li>EBUP: ' + data.accessInfo.epub.isAvailable + '</li>' +
+                   '<li>PDF: ' + data.accessInfo.pdf.isAvailable + '</li>' +        
+                   '<li>Access View Status ' + data.accessInfo.accessViewStatus +'</li>' +
+                   '<li>Quote Sharing Allowed: ' + data.accessInfo.quoteSharingAllowed + '</li></ol></ul>');
+				   
+				   $('#output').append('<h4>More Information: </h4>' + 
+				   '<ul class ="a"><li>Industry:</li>' + 
+                   '<ol class ="b"><li> Identification Type 1: ' + data.volumeInfo.industryIdentifiers[0].type + '</li>' +
+                   '<li> ISBN: ' + data.volumeInfo.industryIdentifiers[0].indentifier + '</li>' +
+                   '<li> Identification Type 2: ' + data.volumeInfo.industryIdentifiers[1].type + '</li>' +
+                   '<li> ISBN: ' + data.volumeInfo.industryIdentifiers[1].indentifier + '</li></ol>' +
+				   '<li>Reading Mode:</li>' +
+                   '<ol class ="b"><li> Text: ' + data.volumeInfo.readingModes.text + '</li>'+
+                   '<li> Image: ' + data.volumeInfo.readingModes.image + '</li></ol>'+   
+				   '<li>Dimensions:</li>' +
+                   '<ol class ="b"><li> Height: ' + data.volumeInfo.dimensions.height + '</li>'+
+                   '<li> Width: ' + data.volumeInfo.dimensions.width + '</li>'+
+                   '<li> Thick: ' + data.volumeInfo.dimensions.thickness + '</li></ol>' + 
+				   '<li>Additional Links:</li>' +
+				   '<ol class ="b"><li><a href="' + data.volumeInfo.imageLinks.smallThumbnail+ '">SmallThumbNail</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.small+ '">SmallImage</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.medium+ '">MediumImage</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.large+ '">LargeImage</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.extraLarge+ '">SmallThumbNail</a></li>' + 
+				   '<li><a href="' + data.volumeInfo.previewLink+ '">PreviewLink</a></li>' +
+				   '<li><a href="' + data.selfLink+ '">SelfLink</a></li>' +   
+                   '<li><a href="' + data.volumeInfo.infoLink + '">InfoLink</a></li>' +
+                   '<li><a href="' + data.volumeInfo.webReaderLink + '">Web Reader Link</a></li>' +
+                   '<li><a href="' + data.volumeInfo.canonicalVolumeLink + '">CanonicalVolLink</a></li>' +
+                   '<li><a href="' + data.volumeInfo.canonicalVolumeLink + '">CanonicalVolumeLink</a></li>' + 
+				   '<li><a href="' + data.saleInfo.buyLink + '">Buy Link</a></ol></ul>');
+               });				
+         });
+		</script>
 	</body>
 </html>
