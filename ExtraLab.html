@@ -21,21 +21,18 @@
 					<header id="header" class="container">
 						<div class="row">
 							<div class="12u">
-
 								<!-- Logo -->
-									<h1><a href="#" id="logo">Halcyonic</a></h1>
-
+								<h1><a id="logo1">Farhan Khan <br/>Projects</a></h1>
 								<!-- Nav -->
-									<nav id="nav">
-										<a href="index.html">Homepage</a>
-										<a href="Milestone1.html">Milestone 1</a>
-										<a href="Milestone2.html">Milestone 2</a>
-										<a href="Milestone3.html">Milestone 3</a>
-										<a href="Milestone4.html">Milestone 4</a>
-										<a href="FinalProject.html">Final Project</a>
-										<a href="ExtraLab.html">Extra Lab</a>
-									</nav>
-
+								<nav id="nav">
+									<a href="index.html">Homepage</a>
+									<a href="Milestone1.html">Milestone 1</a>
+									<a href="Milestone2.html">Milestone 2</a>
+									<a href="Milestone3.html">Milestone 3</a>
+									<a href="Milestone4.html">Milestone 4</a>
+									<a href="FinalProject.html">Final Project</a>
+									<a href="ExtraLab.html">Extra Lab</a>
+								</nav>
 							</div>
 						</div>
 					</header>
@@ -65,28 +62,45 @@
 								<div class="9u 12u(mobile) important(mobile)">
 
 									<!-- Main Content -->
-										<section>
-											<header>
-												<h2>Extra Labs</h2>
-												<h3>Another generic two column layout</h3>
-											</header>
-											<p>
-												Paragraph 1
-											</p>
-											<p>
-												Paragraph 2
-											</p>
-											<p>
-												Paragraph 3
-											</p>
-											<p>
-												paragraph 4
-											</p>
-											<p>
-												Paragraph 5
-											</p>
-										</section>
-
+									<section>
+										<header>
+											<h2>Extra Labs</h2>
+											<h3>Practice Labs:</h3>
+											<br/>
+											<!-- Calculator Program-->
+											<h3>Calculator</h3>
+											 <div>
+												<form name="calc">
+												<table width="20">
+													<tr>
+														<td>
+															<input type="text" NAME="input" Size="18"> 
+														</td>
+													</tr>
+												<tr>
+													<td>
+														<input type="button" name="one" value=" 1 " OnClick="calc.input.value += '1'">
+														<input type="button" name="two" value=" 2 " OnClick="calc.input.value += '2'">
+														<input type="button" name="three" value=" 3 " OnClick="calc.input.value += '3'">
+														<input type="button" name="+" value=" + " OnClick="calc.input.value += ' + '">
+														<input type="button" name="four" value=" 4 " OnClick="calc.input.value += '4'">
+														<input type="button" name="five" value=" 5 " OnClick="calc.input.value += '5'">
+														<input type="button" name="six" value=" 6 " OnClick="calc.input.value += '6'">
+														<input type="button" name="minus" value=" -  " OnClick="calc.input.value += '-'">
+														<input type="button" name="seven" value=" 7 " OnClick="calc.input.value += '7'">
+														<input type="button" name="eight" value=" 8 " OnClick="calc.input.value += '8'">
+														<input type="button" name="nine" value=" 9 " OnClick="calc.input.value += '9'">
+														<input type="button" name="multiply" value=" * " OnClick="calc.input.value += '*'">
+														<input type="button" name="clear" value=" c  " OnClick="calc.input.value = ''">
+														<input type="button" name="zero" value=" 0 " OnClick="calc.input.value += '0'">
+														<input type="button" name="equals" value=" = " OnClick="calc.input.value = eval(calc.input.value)">
+														<input type="button" name="divide" value=" /  " OnClick="calc.input.value += '/'">
+													</td>
+												</tr>
+												</table>
+											</form>
+										</div>
+									</section>
 								</div>
 							</div>
 						</div>
@@ -160,8 +174,6 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/skel-viewport.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
