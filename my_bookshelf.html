@@ -6,22 +6,54 @@
 -->
 <html>
 	<head>
-		<title>Milestone 1</title>
+		<title>Milestone 2</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>		
+        #searchBar 
+		{
+            background-color: #D4D9DD;
+            width: 100%;
+            height: 165px;
+            margin-top: -30px;
+			border: solid;
+        }
+        .logo {
+            margin-top: 30px;
+            margin-bottom: -20px;
+            padding-left: 20px;
+        }
+        .image 
+		{
+          float: left;
+          margin-left: 10px;
+          margin-top: 20px;
+          margin-bottom: 30px;
+          border: 2px solid black;
+          height: 300px;
+          margin-right: 40px;
+        }
+        .title {
+          font-size: 20px;
+          font-style: bold;
+          float: left;
+          margin-left: 40px;
+          margin-top: 20px;
+        }
+		</style>
 	</head>
-	<style>
-	</style>	
 	<body class="subpage">
 		<div id="page-wrapper">
+
 			<!-- Header -->
 				<div id="header-wrapper">
 					<header id="header" class="container">
 						<div class="row">
 							<div class="12u">
+
 								<!-- Logo -->
 									<h1><a id="logo1">Farhan Khan <br/>Projects</a></h1>
 
@@ -30,28 +62,30 @@
 										<a href="index.html">Homepage</a>
 										<a href="Milestone1.html">Milestone 1</a>
 										<a href="Milestone2.html">Milestone 2</a>
-										<a href="#Milestone3.html">Milestone 3</a>
-										<a href="#Milestone4.html">Milestone 4</a>
-										<a href="#FinalProject.html">Final Project</a>
-										<a href="#ExtraLab.html">Extra Lab</a>
+										<a href="Milestone3.html">Milestone 3</a>
+										<a href="Milestone4.html">Milestone 4</a>
+										<a href="FinalProject.html">Final Project</a>
+										<a href="ExtraLab.html">Extra Lab</a>
 									</nav>
 							</div>
 						</div>
-					</header>					
-				</div>				
+					</header>
+				</div>
+
 			<!-- Content -->
-				<div id="feature-wrapper">
+				<div id="content-wrapper">
 					<div id="content">
 						<div class="container">
 							<div class="row">
 								<div class="3u 12u(mobile)">
+
 									<!-- Sidebar -->
 										<section>
 											<header>
 												<h2>Quick Links</h2>
 											</header>
 											<ul class="link-list">
-												<li><a href="Milestone2.html">Milestone 2</a></li>
+												<li><a href="Milestone1.html">Milestone 1</a></li>
 												<li><a href="Milestone3.html">Milestone 3</a></li>
 												<li><a href="Milestone4.html">Milestone 4</a></li>
 												<li><a href="FinalProject.html">Final Project</a></li>
@@ -60,59 +94,17 @@
 										</section>
 								</div>
 								<div class="9u 12u(mobile) important(mobile)">
-									<!-- Main Content -->	
-										<div id="features-wrapper">
-											<div id="features">
-												<div class="container">
-													<div class="row">
-														<div class="3u 12u(mobile)">
-															<!-- Milestone #1 -->
-																<section>
-																	<a href="listofbooks_it-ebooks.html" class="bordered-feature-image"><img src="images/listofbooks_it-ebooks.png"/></a>
-																	<h2>Part 1</h2>
-																	<p>
-																		This returns a list of books as a search result in the JSON format.
-																	</p>
-																</section>
-
-														</div>
-														<div class="3u 12u(mobile)">
-															<!-- Milestone #2 -->
-																<section>
-																	<a href="SingleBooks_it-ebooks.html" class="bordered-feature-image"><img src="images/SingleBooks_it-ebooks.png"/></a>
-																	<h2>Part 2</h2>
-																	<p>
-																		This returns a single book’s data in the JSON format.
-																	</p>
-																</section>
-
-														</div>
-													</div>
-													<div class="row">
-														<div class="3u 12u(mobile)">
-															<!-- Milestone #3 -->
-																<section>
-																	<a href="singlebook_googlebooks.html" class="bordered-feature-image"><img src="images/singlebook_googlebooks.png"/></a>
-																	<h2>Part 3</h2>
-																	<p>
-																		This returns a single book’s data in the JSON format.
-																	</p>
-																</section>
-														</div>
-														<div class="3u 12u(mobile)">
-															<!-- Milestone #4 -->
-																<section>
-																	<a href="listofbooks_googlebooks.html" class="bordered-feature-image"><img src="images/listofbooks_googlebooks.png"/></a>
-																	<h2>Part 4</h2>
-																	<p>
-																		This returns a list of books in the JSON format.
-																	</p>
-																</section>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>									
+								<!-- Main Content -->
+									<section>
+										<div id="searchBar">
+											<h2>My Favorites Bookshelf from
+											<img class="logo" src="images/books-logo.png" height="80" width="270"/></h2>
+											
+										</div>
+										<div id="output" style="display: flex; flex-wrap: wrap"></div>
+										</p>
+										<h2 style="text-align: center"><a href="Milestone2.html">Back to Search</a></h2>
+									</section>
 								</div>
 							</div>
 						</div>
@@ -176,15 +168,59 @@
 
 			<!-- Copyright -->
 				<div id="copyright">
-					2017&copy; Farhan Khan Web Projects. All rights reserved. | Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>
+					2017&copy; Farhan Khan Web Projects. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
 				</div>
+
 		</div>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/skel-viewport.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script>			
+			<script>
+				$(function(){
+					$(window).load(function() 
+					{
+					  var servicePoint = "https://www.googleapis.com/books/v1/users/104924039233505275823/bookshelves/0/volumes";
+					  $.getJSON(servicePoint, function (json) 
+					  {
+						console.log(json);
+							var results="";
+							for (i in json.items)
+							{
+								var book_Title=json.items[i].volumeInfo.title;
+								var book_Author=json.items[i].volumeInfo.authors;
+								var book_Publisher=json.items[i].volumeInfo.publisher;
+								var book_PublisherDate=json.items[i].volumeInfo.publishedDate;
+								var book_Description=json.items[i].volumeInfo.description;
+								var book_ISBN10=json.items[i].volumeInfo.industryIdentifiers[0].identifier;
+								var book_ISBN13=json.items[i].volumeInfo.industryIdentifiers[1].identifier;
+								var book_Pages=json.items[i].volumeInfo.pageCount;
+								var book_Categories=json.items[i].volumeInfo.categories;
+								var book_Ratings=json.items[i].volumeInfo.averageRating;
+								var book_Image=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+								var book_Info_Link=json.items[i].volumeInfo.infoLink;
+								var book_ID=json.items[i].id;
+								results+="</br><div class='title'><h2><a style='color:black;' href='Book_info.html?id=" + book_ID + "'>" +book_Title +"</a></h2>";								
+								results+="<img class='image' src='"+ book_Image + "' />";
+								results+="<br><u>Author:</u> "+ book_Author + "</br>";
+								results+="<u>Publisher:</u> " + book_Publisher+ "</br>";
+								results+="<u>Date:</u> " + book_PublisherDate+ "</br>"
+								results+="<u>Description:</u> <br/>" + book_Description + "</br>";
+								results+="<u>ISBN10:</u> " + book_ISBN10 + "</br>";
+								results+="<u>ISBN13:</u> " + book_ISBN13 + "</br>";
+								results+="<u>Number of pages:</u> " + book_Pages + " pages</br>";
+								results+="<u>Ratings:</u> " + book_Ratings + "</br>";
+								results+="<u>Categories:</u> " + book_Categories + "</br>";
+								results+="<u>Website:</u>  <a href='" + book_Info_Link +"'>" + book_Info_Link + "</a><br>"
+								results+="</br><hr></div>";
+							}
+							$("#output").html(results);
+						});
+					});
+				});
+			</script>
 	</body>
 </html>

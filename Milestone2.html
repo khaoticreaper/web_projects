@@ -12,8 +12,49 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+		#searchBar 
+		{
+			background-color: #D4D9DD;
+			width: 100%;
+			height: 165px;
+			margin-top: -30px;
+			border: solid;
+		}	
+		.logo 
+		{
+			margin-top: 30px;
+			margin-bottom: -20px;
+			padding-left: 20px;
+		}			
+		#largeBox 
+		{
+			display: inline-block;
+			width: 400px;
+			height: 25px;
+			margin-left: 10px;
+			margin-top: -40px;
+		}
+		#Button 
+		{
+			display: block;
+			width: 75px;
+			height: 27px;
+			border-radius: 10px;
+			margin-left: 420px;
+			margin-top: -30px;
+		}
+		.bookdiv 
+		{
+			display: block;
+			margin-top: 50px;
+			margin-left: 20px; 
+			margin-right: 200px; 
+		}
+			
+		</style>
 	</head>
-	<body class="subpage">
+	<body class="subpage" onload = "form1.reset();">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -23,7 +64,7 @@
 							<div class="12u">
 
 								<!-- Logo -->
-									<h1><a href="#" id="logo">Halcyonic</a></h1>
+									<h1><a id="logo1">Farhan Khan <br/>Projects</a></h1>
 
 								<!-- Nav -->
 									<nav id="nav">
@@ -63,35 +104,27 @@
 								</div>
 								<div class="9u 12u(mobile) important(mobile)">
 
-									<!-- Main Content -->
-										<section>
-											<header>
-												<h2>Milestone 2</h2>
-												<h3>Another generic two column layout</h3>
-											</header>
-											<p>
-												Paragraph 1
-											</p>
-											<p>
-												Paragraph 2
-											</p>
-											<p>
-												Paragraph 3
-											</p>
-											<p>
-												Paragraph 4
-											</p>
-											<p>
-												Paragraph 5
-											</p>
-										</section>
-
+								<!-- Main Content -->
+									<section>
+									<div id="searchBar">
+										<h2 style="text-align: left">Search
+										<img class="logo" src="images/books-logo.png" height="80" width="270"/></h2>
+											<form id="form1">
+												<input type="text" id="largeBox"  class="term" name="q" method="get" />
+												<input type="submit" id="Button" value="Search" onclick="$('#show_more').show(); return false;"/>
+											</form>
+										<h3><a href="my_bookshelf.html">Visit My Bookshelf</a></h3>
+									</div>
+									</p>
+									<h2>Total Books Found: <span id="total_Books"></span>
+									<div id="output" style="display: flex; flex-wrap: wrap"></div>
+									<h2 style="text-align: center; display: none;" id="show_more""><a href='Milestone2.html'>1&nbsp;&nbsp;&nbsp;</a><a href="Milestone2_page2.html">2&nbsp;&nbsp;&nbsp;</a><a href="Milestone2_page3.html">3</a></h2>
+									</section>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			<!-- Footer -->
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
@@ -161,6 +194,40 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				
+			</script>
+			<script>
+			  $(function() {
+				$("#Button").click(function(event) {
+					event.preventDefault();
+					var parameters = "?q="+$(".term").val()+"&maxResults=40&startIndex=0";
+					var servicePoint = "https://www.googleapis.com/books/v1/volumes/"+parameters;
+					$.getJSON(servicePoint, function(json) 
+					{
+					  console.log(json);
+					  var total_Books=json.totalItems;
+					  $("#total_Books").text(total_Books);
+					  var results="";
+					  for (i in json.items) 
+					  {
+						var book_title=json.items[i].volumeInfo.title;
+						var book_id=json.items[i].id;
+						var cover = "";
+						if (json.items[i].volumeInfo.imageLinks != null)
+							cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+						var page1 = servicePoint;
+						var Milestone2_page2 = "'https://www.googleapis.com/books/v1/volumes/'"+$('.term').val()+" &maxResults=100&startIndex=101'";
+						var Milestone2_page3 = "'https://www.googleapis.com/books/v1/volumes/'"+$('.term').val()+" &maxResults=100&startIndex=201'";
+					   results+="<br><div class='bookdiv'>";
+					   results+="<img src='"+cover+"' style='float: left; margin-right: 20px;'/>";
+					   results+="<a href='Book_info.html?id="+book_id+"'>"+book_title+"</a>";
+					   results+="<br></div>";
+				   }
+				   $("#output").html(results);
+				 })
+			  })
+			});
+			</script>
 	</body>
 </html>
