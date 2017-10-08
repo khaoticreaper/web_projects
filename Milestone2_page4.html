@@ -11,7 +11,46 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+		#searchBar 
+		{
+			background-color: #D4D9DD;
+			width: 100%;
+			height: 165px;
+			margin-top: -30px;
+			border: solid;
+		}	
+		.logo 
+		{
+			margin-top: 30px;
+			margin-bottom: -20px;
+			padding-left: 20px;
+		}			
+		#largeBox 
+		{
+			display: inline-block;
+			width: 400px;
+			height: 25px;
+			margin-left: 10px;
+			margin-top: -40px;
+		}
+		#Button 
+		{
+			display: block;
+			width: 75px;
+			height: 27px;
+			border-radius: 10px;
+			margin-left: 420px;
+			margin-top: -30px;
+		}
+		.bookdiv 
+		{
+			display: block;
+			margin-top: 50px;
+			margin-left: 20px; 
+			margin-right: 200px; 
+		}
+		</style>
 	</head>
 	<body class="subpage">
 		<div id="page-wrapper">
@@ -23,7 +62,7 @@
 							<div class="12u">
 
 								<!-- Logo -->
-									<h1><a href="#" id="logo">Halcyonic</a></h1>
+									<h1><a id="logo1">Farhan Khan <br/>Projects</a></h1>
 
 								<!-- Nav -->
 									<nav id="nav">
@@ -62,36 +101,30 @@
 										</section>
 								</div>
 								<div class="9u 12u(mobile) important(mobile)">
-
-									<!-- Main Content -->
-										<section>
-											<header>
-												<h2>Milestone 2</h2>
-												<h3>Another generic two column layout</h3>
-											</header>
-											<p>
-												Paragraph 1
-											</p>
-											<p>
-												Paragraph 2
-											</p>
-											<p>
-												Paragraph 3
-											</p>
-											<p>
-												Paragraph 4
-											</p>
-											<p>
-												Paragraph 5
-											</p>
-										</section>
-
+								<!-- Main Content -->
+									<section>
+										<div id="searchBar">
+											<h2 style="text-align: left">Search
+											<img class="logo" src="images/books-logo.png" height="80" width="270"/></h2>
+											<h3><a href="my_bookshelf.html">Visit My Bookshelf</a></h3>
+										</div>									
+										</p>
+										<h2>Showing: 160 Out of <span id="total_Books"></span>
+										<div id="booklist" style="display: flex; flex-wrap: wrap"></div>									
+										<h2 style="text-align: center;">
+											<a style="text-decoration:none;" href="Milestone2.html">&laquo;&nbsp;&nbsp;&nbsp;</a>
+											<a style="text-decoration:none;" href="Milestone2.html">1&nbsp;&nbsp;&nbsp;</a>
+											<a style="text-decoration:none;" href="Milestone2_page2.html">2&nbsp;&nbsp;&nbsp;</a>
+											<a style="text-decoration:none;" href="Milestone2_page3.html">3&nbsp;&nbsp;&nbsp;</a>
+											<a style="text-decoration:none;" href="Milestone2_page4.html">4&nbsp;&nbsp;&nbsp;...</a>
+											<a style="text-decoration:none;" href="Milestone2_page4.html">&raquo;</a>
+										</h2>
+									</section>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			<!-- Footer -->
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
@@ -159,8 +192,41 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/skel-viewport.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+			<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+			<script>
+				window.onload = localStorage.getItem("txt_box_val");
+			</script>
+			<script>
+			  $(function() 
+			  {
+				$(window).load (function() 
+				{
+					var parameters = "?q="+localStorage.getItem("txt_box_val")+"&startIndex=41&maxResults=40";
+					var servicePoint = "https://www.googleapis.com/books/v1/volumes/"+parameters;
+					$("#booklist").html("Searching ..."+"<img src='http://vignette1.wikia.nocookie.net/wikiality/images/7/70/ProgressBar.gif/revision/latest?cb=20070406024457'>");
+					$.getJSON(servicePoint, function(json) 
+					{
+					  console.log(json);
+					  var total_Books=json.totalItems;
+					  $("#total_Books").text(total_Books);
+					  var results="";
+					  for (i in json.items) 
+					  {
+						var book_title=json.items[i].volumeInfo.title;
+						var book_id=json.items[i].id;
+						var cover = "";
+						if (json.items[i].volumeInfo.imageLinks != null)
+						  cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
+					   results+="<br><div class='bookdiv'>";
+					   results+="<img src='"+cover+"' style='float: left; margin-right: 20px;'/>";
+					   results+="<a href='Book_info.html?id="+book_id+"'>"+book_title+"</a>";
+					   results+="<br></div>";
+					  }
+					  $("#booklist").html(results);
+					})
+				})
+			  });
+			</script>
 	</body>
 </html>

@@ -51,7 +51,6 @@
 			margin-left: 20px; 
 			margin-right: 200px; 
 		}
-			
 		</style>
 	</head>
 	<body class="subpage" onload = "form1.reset();">
@@ -109,16 +108,23 @@
 									<div id="searchBar">
 										<h2 style="text-align: left">Search
 										<img class="logo" src="images/books-logo.png" height="80" width="270"/></h2>
-											<form id="form1">
-												<input type="text" id="largeBox"  class="term" name="q" method="get" />
+											<form id="form1" method="link">
+												<input type="text" id="largeBox"  class="box" name="q" method="get" />
 												<input type="submit" id="Button" value="Search" onclick="$('#show_more').show(); return false;"/>
 											</form>
 										<h3><a href="my_bookshelf.html">Visit My Bookshelf</a></h3>
-									</div>
+									</div>									
 									</p>
 									<h2>Total Books Found: <span id="total_Books"></span>
-									<div id="output" style="display: flex; flex-wrap: wrap"></div>
-									<h2 style="text-align: center; display: none;" id="show_more""><a href='Milestone2.html'>1&nbsp;&nbsp;&nbsp;</a><a href="Milestone2_page2.html">2&nbsp;&nbsp;&nbsp;</a><a href="Milestone2_page3.html">3</a></h2>
+									<div id="booklist" style="display: flex; flex-wrap: wrap"></div>									
+									<h2 style="text-align: center; display: none;" id="show_more">
+										<a style="text-decoration:none;" href="Milestone2.html">&laquo;&nbsp;&nbsp;&nbsp;</a>
+										<a style="text-decoration:none;" href="Milestone2.html">1&nbsp;&nbsp;&nbsp;</a>
+										<a style="text-decoration:none;" href="Milestone2_page2.html">2&nbsp;&nbsp;&nbsp;</a>
+										<a style="text-decoration:none;" href="Milestone2_page3.html">3&nbsp;&nbsp;&nbsp;</a>
+										<a style="text-decoration:none;" href="Milestone2_page4.html">4&nbsp;&nbsp;&nbsp;...</a>
+										<a style="text-decoration:none;" href="Milestone2_page4.html">&raquo;</a>
+									</h2>
 									</section>
 								</div>
 							</div>
@@ -192,17 +198,22 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/skel-viewport.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 			<script>
-				
+				window.onclick = function() {
+				   var getInput = $(".box").val();
+				   localStorage.setItem("txt_box_val",getInput);
+				}
 			</script>
 			<script>
 			  $(function() {
-				$("#Button").click(function(event) {
+				$("#Button").click(function(event) 
+				{			 
 					event.preventDefault();
-					var parameters = "?q="+$(".term").val()+"&maxResults=40&startIndex=0";
+					var parameters = "?q="+$(".box").val()+"&startIndex=0&maxResults=40";
 					var servicePoint = "https://www.googleapis.com/books/v1/volumes/"+parameters;
+					$("#booklist").html("Searching ..."+"<img src='http://vignette1.wikia.nocookie.net/wikiality/images/7/70/ProgressBar.gif/revision/latest?cb=20070406024457'>");
 					$.getJSON(servicePoint, function(json) 
 					{
 					  console.log(json);
@@ -216,15 +227,12 @@
 						var cover = "";
 						if (json.items[i].volumeInfo.imageLinks != null)
 							cover=json.items[i].volumeInfo.imageLinks.smallThumbnail;
-						var page1 = servicePoint;
-						var Milestone2_page2 = "'https://www.googleapis.com/books/v1/volumes/'"+$('.term').val()+" &maxResults=100&startIndex=101'";
-						var Milestone2_page3 = "'https://www.googleapis.com/books/v1/volumes/'"+$('.term').val()+" &maxResults=100&startIndex=201'";
 					   results+="<br><div class='bookdiv'>";
 					   results+="<img src='"+cover+"' style='float: left; margin-right: 20px;'/>";
 					   results+="<a href='Book_info.html?id="+book_id+"'>"+book_title+"</a>";
 					   results+="<br></div>";
 				   }
-				   $("#output").html(results);
+				   $("#booklist").html(results);
 				 })
 			  })
 			});
