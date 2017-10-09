@@ -109,7 +109,7 @@
 											<h3><a href="my_bookshelf.html">Visit My Bookshelf</a></h3>
 										</div>									
 										</p>
-										<h2>Showing: 160 Out of <span id="total_Books"></span>
+										<h2>Showing: 121 through 160 Out of <span id="total_Books"></span>
 										<div id="booklist" style="display: flex; flex-wrap: wrap"></div>									
 										<h2 style="text-align: center;">
 											<a style="text-decoration:none;" href="Milestone2.html">&laquo;&nbsp;&nbsp;&nbsp;</a>
@@ -202,7 +202,7 @@
 			  {
 				$(window).load (function() 
 				{
-					var parameters = "?q="+localStorage.getItem("txt_box_val")+"&startIndex=41&maxResults=40";
+					var parameters = "?q="+localStorage.getItem("txt_box_val")+"&startIndex=121&maxResults=40";
 					var servicePoint = "https://www.googleapis.com/books/v1/volumes/"+parameters;
 					$("#booklist").html("Searching ..."+"<img src='http://vignette1.wikia.nocookie.net/wikiality/images/7/70/ProgressBar.gif/revision/latest?cb=20070406024457'>");
 					$.getJSON(servicePoint, function(json) 
