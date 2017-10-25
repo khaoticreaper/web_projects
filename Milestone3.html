@@ -13,6 +13,27 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
+	<style>
+	.pagination
+	{
+	display:inline-block;
+	padding-left:0;
+	margin:20px 0;
+	border-radius:4px
+	}
+	.pagination>li
+	{
+	display:inline
+	}
+	.pagination>li>a,.pagination>li>span
+	{
+	position:relative;
+	float:left;
+	padding:6px 12px;
+	margin-left:-1px;line-height:1.42857143;color:#337ab7;text-decoration:none;
+	background-color:#fff;border:1px solid #ddd
+	}
+	</style>
 	<body class="subpage">
 		<div id="page-wrapper">
 
@@ -23,7 +44,7 @@
 							<div class="12u">
 
 								<!-- Logo -->
-									<h1><a href="#" id="logo">Halcyonic</a></h1>
+									<h1><a id="logo1">Farhan Khan <br/>Projects</a></h1>
 
 								<!-- Nav -->
 									<nav id="nav">
@@ -63,36 +84,52 @@
 										</section>
 								</div>
 								<div class="9u 12u(mobile) important(mobile)">
-
-									<!-- Main Content -->
-										<section>
-											<header>
-												<h2>Milestone 3</h2>
-												<h3>Another generic two column layout</h3>
-											</header>
-											<p>
-												Paragraph 1
-											</p>
-											<p>
-												Paragraph 2
-											</p>
-											<p>
-												Paragraph 3
-											</p>
-											<p>
-												Paragraph 4
-											</p>
-											<p>
-												Paragraph 5
-											</p>
-										</section>
-
+								<!-- Main Content -->
+									<section>
+										<header>
+											<h2>Milestone 3</h2>
+											<h3>Another generic two column layout</h3>
+										</header>	
+											<nav class="navbar navbar-default">
+												<div class="container-fluid">
+													<div class="navbar-header">
+														<a class="navbar-brand" href="#">Book Search</a>
+													</div>
+													<form class="navbar-form navbar-right" role="search">
+														<div class="form-group">
+															<input type="text" id="searchInput"  name="searchInput" class="form-control" placeholder="Search">
+														</div>
+														<button type="button"  id="search" class="btn btn-default">Search</button>
+													</form>
+												</div>
+											</nav>
+												<div id="bookshelf">
+													<h2>Farhan's Bookshelf</h2>
+													<div id="myBookShelf"></div>
+												</div>
+												<hr>
+													<div id="searchResults">
+													<h2>Search Results</h2>
+													<ul class="pagination">
+														<li id="page1"><a href="#">1</a></li>
+														<li id="page2"><a href="#">2</a></li>
+														<li id="page3"><a href="#">3</a></li>
+														<li id="page4"><a href="#">4</a></li>
+														<li id="page5"><a href="#">5</a></li>
+													</ul>
+													</div>
+													<div id="bookResults"></div>
+												<hr>
+												<div id="bookDetails">
+													<h2>Book Details</h2>
+												</div>
+												<div id="displayDetails"></div>																				
+									</section>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			<!-- Footer -->
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
@@ -162,6 +199,9 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+		
+			<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src = "jquery/src/milestone3.js"></script>
 	</body>
 </html>
