@@ -1,105 +1,123 @@
-/*** Load my Google Books bookshelf ***/
-$(function() {
-  $("#myBookShelf").ready(function() {
+$(function() 
+{
+  $("#my_bookshelf").ready(function() 
+  {
     var bookshelfAPI = "https://www.googleapis.com/books/v1/users/104924039233505275823/bookshelves/0/volumes";
     loadBookshelf(bookshelfAPI);
   });
 });
 
-/*** Search for books using search term ***/
-  /*** Pagination code ***/
-$(function() {
-  $("#search").click(function() {
+$(function() 
+{
+  $("#search").click(function() 
+  {
     var parameters1 = "?q="+$("#searchInput").val()+"&startIndex=0";
-    var servicePoint = "https://www.googleapis.com/books/v1/volumes/" + parameters1;
-    loadSearch(servicePoint);
+    var service_point = "https://www.googleapis.com/books/v1/volumes/" + parameters1;
+    loadSearch(service_point);
   });
 
-  $("#page1").on('click', function() {
-    $("#bookResults").empty();
+  $("#Milestone3_Page1").on('click', function() 
+  {
+    $("#book_results").empty();
     var parameters1 = "?q="+$("#searchInput").val()+"&startIndex=0";
-    var servicePoint = "https://www.googleapis.com/books/v1/volumes?q=" + parameters1;
-    loadSearch(servicePoint);
+    var service_point = "https://www.googleapis.com/books/v1/volumes?q=" + parameters1;
+    loadSearch(service_point);
   });
 
-  $("#page2").on('click', function() {
-    $("#bookResults").empty();
+  $("#Milestone3_Page2").on('click', function() 
+  {
+    $("#book_results").empty();
     var parameters2 = "?q="+$("#searchInput").val()+"&startIndex=10";
-    var servicePoint = "https://www.googleapis.com/books/v1/volumes?q=" + parameters2;
-    loadSearch(servicePoint);
+    var service_point = "https://www.googleapis.com/books/v1/volumes?q=" + parameters2;
+    loadSearch(service_point);
   });
 
-  $("#page3").on('click', function() {
-    $("#bookResults").empty();
+  $("#Milestone3_Page3").on('click', function() 
+  {
+    $("#book_results").empty();
     var parameters3 = "?q="+$("#searchInput").val()+"&startIndex=20";
-    var servicePoint = "https://www.googleapis.com/books/v1/volumes?q=" + parameters3;
-    loadSearch(servicePoint);
+    var service_point = "https://www.googleapis.com/books/v1/volumes?q=" + parameters3;
+    loadSearch(service_point);
   });
 
-  $("#page4").on('click', function() {
-    $("#bookResults").empty();
+  $("#Milestone3_Page4").on('click', function() 
+  {
+    $("#book_results").empty();
     var parameters4 = "?q="+$("#searchInput").val()+"&startIndex=30";
-    var servicePoint = "https://www.googleapis.com/books/v1/volumes?q=" + parameters4;
-    loadSearch(servicePoint);
+    var service_point = "https://www.googleapis.com/books/v1/volumes?q=" + parameters4;
+    loadSearch(service_point);
   });
 
-  $("#page5").on('click', function() {
-    $("#bookResults").empty();
+  $("#Milestone3_Page5").on('click', function() 
+  {
+    $("#book_results").empty();
     var parameters5 = "?q="+$("#searchInput").val()+"&startIndex=40";
-    var servicePoint = "https://www.googleapis.com/books/v1/volumes?q=" + parameters5;
-    loadSearch(servicePoint);
+    var service_point = "https://www.googleapis.com/books/v1/volumes?q=" + parameters5;
+    loadSearch(service_point);
   });
 });
 
-/*** And here's the magic of functions! ***/
 
-function loadBookshelf(bookshelfURL) {
+function loadBookshelf(bookshelfURL) 
+{
 
-  $.getJSON(bookshelfURL, function(json) {
+  $.getJSON(bookshelfURL, function(json) 
+  {
     var bookshelfData = "";
-    for (i in json.items) {
+    for (i in json.items) 
+	{
       bookshelfData+="<img class='book' bookID='"+ json.items[i].id +"' ";
       bookshelfData+="src='"+ json.items[i].volumeInfo.imageLinks.smallThumbnail +"'>";
     }
-    $("#myBookShelf").html(bookshelfData);
-    $(".book").on('click', function() {
-      loadBookDetails($(this).attr("bookID"));
+    $("#my_bookshelf").html(bookshelfData);
+    $(".book").on('click', function() 
+	{
+      load_book_results($(this).attr("bookID"));
     });
   });
 }
 
-function loadSearch(searchURL) {
-  $("#bookResults").html("Searching...");
-  $.getJSON(searchURL, function(json) {
+function loadSearch(searchURL) 
+{
+  $("#book_results").html("Searching..."+"<img src='http://vignette1.wikia.nocookie.net/wikiality/images/7/70/ProgressBar.gif/revision/latest?cb=20070406024457'>");
+  $.getJSON(searchURL, function(json) 
+  {
     var searchTerm = "";
-      for (i in json.items) {
+      for (i in json.items) 
+	  {
         searchTerm += "<img class='book' bookID='"+ json.items[i].id + "' ";
         searchTerm += "src='"+ json.items[i].volumeInfo.imageLinks.smallThumbnail +"'>";
       }
 
-      $("#bookResults").html(searchTerm);
-      $(".book").on('click', function() {
-        loadBookDetails($(this).attr("bookID"));
+      $("#book_results").html(searchTerm);
+      $(".book").on('click', function() 
+	  {
+        load_book_results($(this).attr("bookID"));
       });
   });
 }
 
-function loadBookDetails(clickedBook) {
-  $("#displayDetails").html("Getting details...");
-  $.getJSON("https://www.googleapis.com/books/v1/volumes/" + clickedBook, function (json){
-    $("#displayDetails").empty();
-      var details = "<img class='book' src='"+ json.volumeInfo.imageLinks.smallThumbnail +"'>";
-      details += "<h2>" + json.volumeInfo.title + "</h2>";
-      details += "<br><p>Author: " + json.volumeInfo.authors + "</p>";
-      details += "<p>Publisher: " + json.volumeInfo.publisher + "</p>";
-      details += "<p>ISBN: " + json.volumeInfo.industryIdentifiers[0].identifier + "</p>";
-      details += "<p>Number of Pages: " + json.volumeInfo.pageCount + "</p>";
-      if(typeof(json.saleInfo.listPrice) != "undefined") {
-        details += "<p>List Price: " + json.saleInfo.listPrice.amount + "</p>";
-      } else {
-        details += "<p>List Price: Not Listed</p>";
+function load_book_results(clickedBook) 
+{
+  $("#display_results").html("Getting results..."+"<img src='http://vignette1.wikia.nocookie.net/wikiality/images/7/70/ProgressBar.gif/revision/latest?cb=20070406024457'>");
+  $.getJSON("https://www.googleapis.com/books/v1/volumes/" + clickedBook, function (json)
+  {
+    $("#display_results").empty();
+      var results = "<img class='book' src='"+ json.volumeInfo.imageLinks.smallThumbnail +"'>";
+      results += "<h2><u>" + json.volumeInfo.title + "</u></h2>";
+      results += "<br><p><u>Author:</u> " + json.volumeInfo.authors + "</br>";
+      results += "<u>Publisher:</u> " + json.volumeInfo.publisher + "</br>";
+      results += "<u>ISBN:</u> " + json.volumeInfo.industryIdentifiers[0].identifier + "</br>";
+      results += "<u>Number of Pages:</u> " + json.volumeInfo.pageCount + "</br>";
+      if(typeof(json.saleInfo.listPrice) != "undefined") 
+	  {
+        results += "<u>List Price:</u> $" + json.saleInfo.listPrice.amount + "</br>";
+      } 
+	  else 
+	  {
+        results += "<u>List Price:</u> Not Listed</br>";
       }
-      details += "<p>Description: " + json.volumeInfo.description + "</p>";
-      $("#displayDetails").html(details);
+      results += "<u>Description:</u> " + json.volumeInfo.description + "</br>";
+      $("#display_results").html(results);
   });
 };
