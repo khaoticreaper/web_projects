@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<!--
+	Halcyonic by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Milestone 4</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="../assets/css/ie9.css" /><![endif]-->
+	</head>
+    <style>
+	#layout 
+	{
+	width: 80%;
+	margin: 0 auto;
+	text-align: right;
+	}
+	#layout ul li 
+	{
+	display: inline;
+	list-style-type: none;
+	padding-right: 20px;
+	}
+	.pagination
+	{
+	display:-ms-flexbox;display:flex;padding-left:0;list-style:none;border-radius:.25rem
+	}
+	.page-item:first-child .page-link
+	{
+	margin-left:0;border-top-left-radius:.25rem;border-bottom-left-radius:.25rem
+	}
+	.page-item:last-child .page-link
+	{
+	border-top-right-radius:.25rem;border-bottom-right-radius:.25rem
+	}
+	.page-item.active .page-link
+	{
+	z-index:2;color:#fff;background-color:#007bff;border-color:#007bff
+	}
+	.page-item.disabled .page-link
+	{
+	color:#868e96;pointer-events:none;background-color:#fff;border-color:#ddd
+	}
+	.page-link
+	{
+	position:relative;display:block;padding:.5rem .75rem;margin-left:-1px;line-height:1.25;color:#007bff;background-color:#fff;border:1px solid #ddd
+	}
+	.page-link:focus,.page-link:hover
+	{
+	color:#0056b3;text-decoration:none;background-color:#e9ecef;border-color:#ddd
+	}
+	.pagination-lg .page-link
+	{
+	padding:.75rem 1.5rem;font-size:1.25rem;line-height:1.5
+	}
+	.pagination-lg .page-item:first-child .page-link
+	{
+	border-top-left-radius:.3rem;border-bottom-left-radius:.3rem
+	}
+	.pagination-lg .page-item:last-child .page-link
+	{
+	border-top-right-radius:.3rem;border-bottom-right-radius:.3rem
+	}
+	.pagination-sm .page-link{padding:.25rem .5rem;font-size:.875rem;line-height:1.5
+	}
+	.pagination-sm .page-item:first-child .page-link
+	{
+	border-top-left-radius:.2rem;border-bottom-left-radius:.2rem
+	}
+	.pagination-sm .page-item:last-child .page-link
+	{
+	border-top-right-radius:.2rem;border-bottom-right-radius:.2rem
+	}
+	#book_results 
+	{
+	width: 100%;
+	padding: 1em;
+	margin-bottom: 1em;
+	margin: 0 auto;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	}
+	.book_resultsitem
+	{
+	width: 80%;
+	border: thin solid black;
+	border-radius: 10px;
+	margin:2em;
+	flex-direction: column;
+	}
+	.book_resultsitemheader
+	{
+	cursor: pointer;
+	display: flex;
+	flex-wrap: wrap;
+	}
+	.booklistitemheader:hover
+	{
+	background-color: #e6e6e6;
+	}
+	.color{
+	background:#ffcce9
+	}
+	.pages:hover
+	{
+	cursor:pointer
+	}
+	</style>
+	<body class="subpage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<header id="header" class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Logo -->
+									<h1><a id="logo1">Farhan Khan <br/>Projects</a></h1>
+
+								<!-- Nav -->
+									<nav id="nav">
+										<a href="index.html">Homepage</a>
+										<a href="../Milestone1.html">Milestone 1</a>
+										<a href="../Milestone2.html">Milestone 2</a>
+										<a href="../Milestone3.html">Milestone 3</a>
+										<a href="Milestone4.html">Milestone 4</a>
+										<a href="../FinalProject.html">Final Project</a>
+										<a href="../ExtraLab.html">Extra Lab</a>
+									</nav>
+
+							</div>
+						</div>
+					</header>
+				</div>
+
+			<!-- Content -->
+				<div id="content-wrapper">
+					<div id="content">
+						<div class="container">
+							<div class="row">
+								<div class="3u 12u(mobile)">
+
+									<!-- Sidebar -->
+										<section>
+											<header>
+												<h2>Quick Links</h2>
+											</header>
+											<ul class="link-list">
+												<li><a href="../Milestone1.html">Milestone 1</a></li>
+												<li><a href="../Milestone2.html">Milestone 2</a></li>
+												<li><a href="../Milestone3.html">Milestone 3</a></li>
+												<li><a href="../FinalProject.html">Final Project</a></li>
+												<li><a href="../ExtraLab.html">Extra Lab</a></li>
+											</ul>
+										</section>
+								</div>
+								<div class="9u 12u(mobile) important(mobile)">
+								<!-- Main Content -->
+								<section>
+									<header>
+											<h2>Milestone 4</h2>
+										</header>	
+										<nav class="navbar navbar-default">
+											<div class="container-fluid">
+												<div class="navbar-header">
+													<a class="navbar-brand" href="#">Book Search</a>
+												</div>
+												<form class="navbar-form navbar-right" role="search">
+													<div class="form-group">
+														<input type="text" id="searchInput"  name="searchInput" class="form-control" placeholder="Search">
+													</div>
+													<button type="button"  id="search_button" class="btn btn-default">Search</button>
+												</form>
+											</div>
+										</nav>
+										<hr>
+										</p>
+										<h2>Search Results</h2>
+										<div id='layout'>
+											<ul>
+											<li><button type="button" id="my_bookshelf" onclick="bookshelf_button()">My Bookshelf</button></li>
+												<li><button class="button" id="grid" type="button">Grid</button></li>
+												<li><button class="button" id="list" type="button">List</button></li>
+												
+											</ul>
+										</div>
+										<div id="book_results"></div>
+										<nav aria-label="Page navigation example">
+										  <ul class="pagination">
+											<li id="Milestone3_Page1"><a class="page-link" href="#">1</a></li>
+											<li id="Milestone3_Page2"><a class="page-link" href="#">2</a></li>
+											<li id="Milestone3_Page3"><a class="page-link" href="#">3</a></li>
+											<li id="Milestone3_Page4"><a class="page-link" href="#">4</a></li>
+											<li id="Milestone3_Page5"><a class="page-link" href="#">5</a></li>
+										  </ul>
+										</nav>										
+										<hr>
+										</p>
+										<div id="maincontent">
+										<div id="book_results" layout="list"></div>
+										</div> 
+									</header>
+								</section>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- Footer -->
+				<div id="footer-wrapper">
+					<footer id="footer" class="container">
+						<div class="row">
+							<div class="8u 12u(mobile)">
+
+								<!-- Links -->
+									<section>
+										<h2>Links to Important Stuff</h2>
+										<div>
+											<div class="row">
+												<div class="2u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="https://www.facebook.com/KhaoticReaper" target="_blank">Facebook</a></li>
+														<li></li>
+													</ul>
+												</div>
+												<div class="2u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="https://twitter.com/khaotickhan" target="_blank">Twitter</a></li>
+														<li></li>
+													</ul>
+												</div>
+												<div class="2u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="https://plus.google.com/+FarhanKhanKR" target="_blank">Google +</a></li>
+														<li></li>
+													</ul>
+												</div>
+												<div class="2u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="https://www.twitch.tv/khaoticreaper" target="_blank">Twitch</a></li>
+														<li></li>
+													</ul>
+												</div>
+												<div class="2u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="mailto:fkhan13@students.kennesaw.edu" target="_blank">Contact me</a></li>
+														<li></li>
+													</ul>
+												</div>
+												<div class="2u 12u(mobile)">
+													<ul class="link-list last-child">
+														<li><a href="tel:+1-800-222-2222">Call me</a></li>
+														<li></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</section>
+							</div>
+						</div>
+					</footer>
+				</div>
+			<!-- Copyright -->
+				<div id="copyright">
+					2017&copy; Farhan Khan Web Projects. All rights reserved. | Design: <a href="http://html5up.net">HTML5 UP</a>
+				</div>
+
+		</div>
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/skel.min.js"></script>
+		<script src="../assets/js/skel-viewport.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="../assets/js/main.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
+		<!-- script to hide book shelf -->
+
+		<!-- script to display the books on the page -->
+		 <script id="book_resultstemplate" type="text/template">
+			{{#items}}
+			<div class='book_resultsitem' id="{{id}}">
+				<div class="book_resultsitemheader" data-bookid="{{id}}">
+					<img class='thumbnail' src='{{volumeInfo.imageLinks.smallThumbnail}}'/>
+					<h2 class='title' style='text-align: center'>{{volumeInfo.title}}</h2>
+				</div>
+				<div class='bookdetails' style='display:none'></div>
+			</div>
+			{{/items}}
+		</script>
+		<!-- script to display the details of the books -->
+		<script id="bookdetailstemplate" type="text/template">
+			<div class='book'>
+				<h3 style='text-align: center'>{{volumeInfo.subtitle}}</h3>
+				<div>
+					<b>&nbsp;Subtitle: </b>{{volumeInfo.subtitle}}</br>
+					<b>&nbsp;Authors: </b>{{volumeInfo.authors}}</br>
+					<b>&nbsp;Page Count: </b>{{volumeInfo.pageCount}} pages</br>
+					<b>&nbsp;Avrage Rating: </b>{{volumeInfo.averageRating}}</br>
+					<b>&nbsp;Ratings Count: </b>{{volumeInfo.ratingsCount}}</br>
+					<b>&nbsp;Language: </b>{{volumeInfo.language}}</br>
+					<b>&nbsp;Amount: $</b>{{saleInfo.listPrice.amount}}</br>
+					<b>&nbsp;Retail Amount: $</b>{{saleInfo.retailPrice.amount}}</br>
+					<b>&nbsp;Publish Date: </b>{{volumeInfo.publishedDate}}</br>
+					<b>&nbsp;Publisher: </b>{{volumeInfo.publisher}}</br>
+					<h3>&nbsp;Description</h3>
+					<div>{{volumeInfo.description}}</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+		</script>
+		<!-- script for the breadcrumbs -->
+		<script type="text/javascript">
+			$(function() 
+			{
+			  $("#search_button").click(function() 
+			  {
+				$("#book_results").html("");
+				var startIndex = "0";
+				var search = $("#searchInput").val();
+				var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+				var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+				searchBook(url);
+			  });
+				
+			  $("#Milestone3_Page1").on('click', function() 
+			  {
+				$("#book_results").html("");
+				var startIndex = "0";
+				var search = $("#searchInput").val();
+				var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+				var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+				searchBook(url);
+			  });
+
+			  $("#Milestone3_Page2").on('click', function() 
+			  {
+				$("#book_results").html("");
+				var startIndex = "10";
+				var search = $("#searchInput").val();
+				var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+				var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+				searchBook(url);
+			  });
+
+			  $("#Milestone3_Page3").on('click', function() 
+			  {
+				$("#book_results").html("");
+				var startIndex = "20";
+				var search = $("#searchInput").val();
+				var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+				var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+				searchBook(url);
+			  });
+
+			  $("#Milestone3_Page4").on('click', function() 
+			  {
+				$("#book_results").html("");
+				var startIndex = "30";
+				var search = $("#searchInput").val();
+				var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+				var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+				searchBook(url);
+			  });
+
+			  $("#Milestone3_Page5").on('click', function() 
+			  {
+				$("#book_results").html("");
+				var startIndex = "40";
+				var search = $("#searchInput").val();
+				var parameter = "?q=" + search + "&startIndex=" + startIndex + "&maxResults=10";
+				var url = "https://www.googleapis.com/books/v1/volumes/" + parameter;
+				searchBook(url);
+			  });
+			  $("#my_bookshelf").click(function()
+				{
+				var bookshelf = "<h2>Farhan Khan Bookshelf</h2>"
+				$("#book_results").append(bookshelf);
+				var url = "https://www.googleapis.com/books/v1/users/104924039233505275823/bookshelves/0/volumes";
+				searchBook(url);
+				});
+			});
+
+			 function searchBook(servicePoint)
+			 {
+				 $.getJSON(servicePoint, function (jsonData)
+				 {
+					var template = $('#book_resultstemplate').html();
+					var html = Mustache.render(template, jsonData);
+					$("#book_results").append(html);
+					 $(".book_resultsitemheader").on('click', function () 
+					 { 
+						div=$(this).next(); // get the book details div
+						getBookDetails($(this).attr("data-bookid"), div);
+					 });
+				 });
+			 }
+
+			 function getBookDetails(bookid, div)
+			 {
+
+				 $.getJSON("https://www.googleapis.com/books/v1/volumes/" + bookid, function (jsonData)
+				 {
+					var template = $('#bookdetailstemplate').html();
+					var html = Mustache.render(template, jsonData);
+					$(div).html(html);
+					$(div).slideToggle();
+				 });
+			 }
+		</script>
+		<!-- script for Grid and list -->
+		<script>
+		$(function()
+		{
+			$("#grid").click(function ()
+			{
+				$(".book_resultsitem").css("width", "40%").css("flex-direction", "row");
+				$("#book_results").attr("layout","Grid");
+			});
+			
+			$("#list").click(function ()
+			{
+				$(".book_resultsitem").css("width", "100%").css("flex-direction", "column");
+				$("#book_results").attr("layout","List");
+			});
+		});
+		</script>
+
+	</body>
+</html>
