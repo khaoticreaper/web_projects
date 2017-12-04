@@ -81,6 +81,7 @@
 													<li><button class="button" id="popular_movies" type="button">Popular Movies</button></li>
 													<li><button class="button" id="top_rated_movies" type="button">Top Rated Movies</button></li>
 													<li><button class="button" id="upcoming_movies" type="button">Upcoming Movies</button></li>
+													<li><button class="button" id="favorite_movies" type="button">My Favorite Movies</button></li>
 												</ul>
 											</div>
 											<div class="line" id='layout'>
@@ -304,6 +305,13 @@
 			 {
 				$("#movielist").html("");
 				var url = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + api_key + "&language=en-US&page=1";
+				searchMovie(url);
+			});
+				
+			$("#favorite_movies").click(function ()
+			 {
+				$("#movielist").html("");
+				var url = "https://api.themoviedb.org/3/fkhan13/favorites?api_key=" + api_key + "&language=en-US&page=1";
 				searchMovie(url);
 			});
 			});
