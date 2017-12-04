@@ -239,6 +239,7 @@
 				var parameter = "&query=" + search;
 				var url = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&language=en-US" + parameter;
 				searchMovie(url);
+				 $('.pagination').show();
 			});
 			$("#0").click(function() 
 			{
@@ -291,6 +292,7 @@
 				$("#movielist").html("");
 				var url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=" + api_key;
 				searchMovie(url);
+				$('.pagination').hide();
 			});
 
 			$("#top_rated_movies").click(function ()
@@ -298,6 +300,7 @@
 				$("#movielist").html("");
 				var url = "https://api.themoviedb.org/3/movie/top_rated?api_key=" + api_key + "&language=en-US&page=1";
 				searchMovie(url);
+				$('.pagination').hide();
 			});
 
 			$("#upcoming_movies").click(function ()
@@ -305,6 +308,7 @@
 				$("#movielist").html("");
 				var url = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + api_key + "&language=en-US&page=1";
 				searchMovie(url);
+				$('.pagination').hide();
 			});
 				
 			$("#favorite_movies").click(function ()
