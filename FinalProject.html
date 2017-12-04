@@ -186,10 +186,12 @@
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
 			
 			<!-- when screen is reloaded or landed on, the paginations will be kept hidden till searched is clicked -->
-			$(document).ready(function() 
-			{
-			    $('#pages').hide();
-			});
+			<script>
+				$(document).ready(function() 
+				{
+				    $('#pages').hide();
+				});
+			</script>
 			<!-- script to display the movies on the page -->
 			<script id="movie_list_template" type="text/template">
 			{{#results}}
