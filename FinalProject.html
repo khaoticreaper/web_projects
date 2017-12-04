@@ -16,6 +16,9 @@
 		<!-- created a seperate stylesheet for this specific term project -->
 		<link rel="stylesheet" href="assets/css/FinalProject.css"/>
 	</head>
+	<style>
+		#comma_container span:not(:last-of-type)::after {content: ", "}
+	</style>
 	<body class="subpage">
 		<div id="page-wrapper">
 			<!-- Header -->
@@ -202,16 +205,16 @@
 		<script id="movie_details_template" type="text/template">
 			<div>
 				<div class="flex">
-						<div>
+						<div class="comma_container">
 							</br>
 							<b>&nbsp;<u>Release Date:</u> </b>{{release_date}}</br>
-							<b>&nbsp;<u>Language:</u> </b>{{#spoken_languages}}{{name}},{{/spoken_languages}}</br>
+							<b>&nbsp;<u>Language:</u> </b>{{#spoken_languages}}<span>{{name}}<span>{{/spoken_languages}}</br>
 							<b>&nbsp;<u>Genres:</u> </b>{{#genres}}{{name}},{{/genres}}</br>
 							<b>&nbsp;<u>Vote Average:</u> </b>{{vote_average}} out of 10.0</br>							
 							<b>&nbsp;<u>Status:</u> </b>{{status}}</br>
 							<b>&nbsp;<u>Runtime:</u> </b>{{runtime}} min</br>
 							<b>&nbsp;<u>Revenue: $</u> </b>{{revenue}}</br>
-							<b>&nbsp;<u>Production Companies: </u> </b>{{#production_companies}}{{name}}{{/production_companies}},</br>
+							<b>&nbsp;<u>Production Companies: </u> </b>{{#production_companies}}<span>{{name}}<span>{{/production_companies}}</br>
 							<b>&nbsp;<u>IMDB:</u> </b><a href="http://www.imdb.com/title/{{imdb_id}}" target="_blank">Visit</a></br>
 							<b>&nbsp;<u>Homepage:</u> </b><a href="{{homepage}}" target="_blank">Visit</a></br>
 							<b>&nbsp;<u>Tagline:</u> </b>{{tagline}}</br>
