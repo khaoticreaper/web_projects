@@ -232,8 +232,6 @@
 			$(document).ready(function ()
 			{
 			 var api_key = "8553e963afcc68bc0f2cd9e0fea57612";
-			 var temp_key = "https://api.themoviedb.org/3/authentication/token/new?api_key=" + api_key;
-			 var session_key = "https://api.themoviedb.org/3/authentication/session/new?api_key="+ api_key + "&request_token=" + temp_key;
 			 $("#search_button").click(function ()
 			 {
 				$("#movielist").html("");
@@ -312,7 +310,9 @@
 			$("#favorite_movies").click(function ()
 			 {
 				$("#movielist").html("");
-				var url = "https://api.themoviedb.org/3/account/fkhan13/favorite/movies?api_key=" + api_key + "&session_id=" + session_key + "&language=en-US&sort_by=created_at.asc&page=1";
+				var request_token = "https://api.themoviedb.org/3/authentication/token/new?api_key=" + api_key;
+				var session_key = "https://www.themoviedb.org/authenticate/" + request_token + "?redirect_to=https://api.themoviedb.org/3/account/fkhan13/favorite/movies?api_key=" + api_key + "&session_id="session_key + "&language=en-US&sort_by=created_at.asc&page=1";
+				
 				searchMovie(url);
 			});
 			});
