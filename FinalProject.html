@@ -15,7 +15,10 @@
 		
 		<!-- created a seperate stylesheet for this specific term project -->
 		<link rel="stylesheet" href="assets/css/FinalProject.css"/>
-	</head>
+	</head>	
+	<style>
+		#comma_container span:not(:last-of-type)::after {content: ", "}
+	</style>
 	<body class="subpage">
 		<div id="page-wrapper">
 			<!-- Header -->
@@ -202,7 +205,7 @@
 		<script id="movie_details_template" type="text/template">
 			<div>
 				<div class="flex">
-						<div>
+						<div id="comma_container">
 							</br>
 							<b>&nbsp;<u>Release Date:</u> </b>{{release_date}}</br>
 							<b>&nbsp;<u>Language:</u> </b>{{#spoken_languages}}<span>{{name}}<span>{{/spoken_languages}}</br>
