@@ -309,10 +309,9 @@
 				
 			$("#favorite_movies").click(function ()
 			 {
-				$.getJSON('asset/js/movies.json', function(read_data) 
-				{
-					  $('#movielist').html;
-				  });
+				$("#movielist").html("");
+				var url = "https://api.themoviedb.org/3/movie/top_rated?api_key=" + api_key + "&language=en-US&page=1";
+				searchMovie(url);
 			});
 			});
 			<!-- script to search for the movie and display it in proper layout -->
