@@ -34,6 +34,10 @@ display: none;
 .color{
 background:#ffcce9
 }
+#comma_container span:not(:last-of-type)::after 
+{
+content: ", "
+}
 .flex 
 {
 display: flex;
@@ -172,7 +176,7 @@ border-bottom-right-radius:.2rem
 }
 .rated_movies
 {
-width: 80%;
+width: 60%;
 margin-top: 30px;
 text-align: left;
 }
