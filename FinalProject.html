@@ -309,9 +309,10 @@
 				
 			$("#favorite_movies").click(function ()
 			 {
-				$("#movielist").html("");
-				var url = "asset/js/movie.json";
-				searchMovie(url);
+				$.getJSON('json_data.txt', function(read_data) 
+				{
+					  $('#movielist').html;
+				  });
 			});
 			});
 			<!-- script to search for the movie and display it in proper layout -->
