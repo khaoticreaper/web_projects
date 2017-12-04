@@ -311,7 +311,9 @@
 			$("#favorite_movies").click(function ()
 			 {
 				$("#movielist").html("");
-				var url = "https://api.themoviedb.org/3/account/fkhan13/favorite/movies?api_key=" + api_key + "&language=en-US&sort_by=created_at.asc&page=1";
+				var temp = "https://api.themoviedb.org/3/authentication/token/new?api_key=" + api_key;
+				var session = "https://api.themoviedb.org/3/authentication/session/new?api_key="+ api_key + "&request_token=" + temp;
+				var url = "https://api.themoviedb.org/3/account/fkhan13/favorite/movies?api_key=" + api_key + "&session_id=" + session + "&language=en-US&sort_by=created_at.asc&page=1;
 				searchMovie(url);
 			});
 			});
