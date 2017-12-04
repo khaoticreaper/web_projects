@@ -184,14 +184,6 @@
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
-			
-			<!-- when screen is reloaded or landed on, the paginations will be kept hidden till searched is clicked -->
-			<script>
-				$(document).ready(function() 
-				{
-				    $('#pages').hide();
-				});
-			</script>
 			<!-- script to display the movies on the page -->
 			<script id="movie_list_template" type="text/template">
 			{{#results}}
@@ -381,7 +373,6 @@
 					$("#movielist").attr("layout","Grid");
 					$(".card").hide();
 					$(".thumbnail").css("width", "100%").css("height", "100%");
-					$('#pages').show();
 				});
 				
 				$("#list").click(function (){
@@ -389,7 +380,6 @@
 					$("#movielist").attr("layout","List");
 					$(".card").show();
 					$(".thumbnail").css("width", "25%").css("height", "25%");
-					$('#pages').show();
 				});
 			});
 		</script>
