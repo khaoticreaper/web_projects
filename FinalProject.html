@@ -17,7 +17,10 @@
 		<link rel="stylesheet" href="assets/css/FinalProject.css"/>
 	</head>	
 	<style>
-		#comma_container span:not(:last-of-type)::after {content: ", "}
+		#comma_container ul
+		{
+		list-style-position:inside;
+		}
 	</style>
 	<body class="subpage">
 		<div id="page-wrapper">
@@ -208,8 +211,8 @@
 						<div>
 							</br>
 							<b>&nbsp;<u>Release Date:</u> </b>{{release_date}}</br>
-							<b>&nbsp;<u>Language:</u> </b>{{#spoken_languages}}<span>{{name}}</span>{{/spoken_languages}}</br>
-							<b>&nbsp;<u>Genres:</u> </b>{{#genres}}<span>{{name}}</span>{{/genres}}</br>
+							<b>&nbsp;<u>Language:</u> </b>{{#spoken_languages}}<ul><li>{{name}}</li></ul>{{/spoken_languages}}</br>
+							<b>&nbsp;<u>Genres:</u> </b>{{#genres}}<ul><li>{{name}}</li></ul>{{/genres}}</br>
 							<b>&nbsp;<u>Vote Average:</u> </b>{{vote_average}} out of 10.0</br>							
 							<b>&nbsp;<u>Status:</u> </b>{{status}}</br>
 							<b>&nbsp;<u>Runtime:</u> </b>{{runtime}} min</br>
