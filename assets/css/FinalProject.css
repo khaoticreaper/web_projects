@@ -176,7 +176,7 @@ border-bottom-right-radius:.2rem
 }
 .rated_movies
 {
-width: 60%;
+width: 80%;
 margin-top: 30px;
 text-align: left;
 }
@@ -184,7 +184,7 @@ text-align: left;
 {
 display: inline;
 list-style-type: none;
-padding-right: 20px;
+padding-right: 10px;
 }
 .thumbnail 
 {
