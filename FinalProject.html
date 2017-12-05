@@ -181,6 +181,9 @@
 			<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
 			<!-- script to display the movies on the page -->
+			<script id="display_results type="text/template">
+			<p><h3 id="display_results"><u>Total Results</u>: {{#}}{{total_results}}{{/}}</h3></p>
+			<script>
 			<script id="movie_list_template" type="text/template">				
 			{{#results}}
 			<div class="movie_list_item" id="{{id}}">
@@ -318,8 +321,7 @@
 			function searchMovie(servicePoint)
 			{
 			 $.getJSON(servicePoint, function (jsonData)
-			 {
-				<p><h3 id="display_results"><u>Total Results</u>: {{total_results}}</h3></p>
+			 {				
 				var template = $('#movie_list_template').html();
 				var html = Mustache.render(template, jsonData);
 				$("#movielist").append(html);
