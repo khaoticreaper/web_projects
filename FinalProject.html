@@ -90,7 +90,7 @@
 										</div>
 										
 										<div id="maincontent">
-											<div id="movielist" layout="list"></div>
+											<div id="movielist" layout="grid"></div>
 										</div>
 										<div id="movie_details"></div>
 										<div id="navigation">	
@@ -191,7 +191,7 @@
 					</br>
 					</br>
 					</br>
-						<h2 style='text-align: center'><b><u>{{title}}{{original_title}}</u></b></h2>
+						<h2 style='text-align: center'><b><u>{{title}}</u></b></h2>
 					</div>
 				</div>
 				<div class='movie_details' style='display:none'></div>
@@ -233,7 +233,7 @@
 				$("#movielist").html("");
 				var search = $("#search_val").val();
 				var parameter = "&query=" + search + "&page=1";
-				var url = "https://api.themoviedb.org/3/search/multi?api_key=" + api_key + "&language=en-US" + parameter;
+				var url = "https://api.themoviedb.org/3/search/keyword?api_key=" + api_key + parameter;
 				searchMovie(url);
 				$('.pagination').show();
 			});
