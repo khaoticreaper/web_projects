@@ -38,7 +38,7 @@ background:#ffcce9
 {
 content: ", "
 }
-.display_results
+#display_results
 {
 border: 1px solid black;
 padding-top:10px;
