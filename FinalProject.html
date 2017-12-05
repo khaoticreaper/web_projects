@@ -88,7 +88,6 @@
 												</ul>
 											</div>
 										</div>			
-										<div id="display_results"></div>
 										<div id="maincontent">											
 											<div id="movielist" layout="grid"></div>
 										</div>
@@ -182,9 +181,6 @@
 			<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
 			<!-- script to display the movies on the page -->
-			<script id="display_results" type="text/template">
-				<h3><u>Total Results</u>: {{total_results}}</h3>
-			</script>
 			<script id="movie_list_template" type="text/template">	
 			{{#results}}
 			<div class="movie_list_item" id="{{id}}">
@@ -238,6 +234,7 @@
 				var parameter = "&query=" + search + "&page=1";
 				var url = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + parameter;
 				searchMovie(url);
+				 <h3 id="display_results"><u>Total Results</u>: {{total_results}}</h3>
 				$('.pagination').show();
 			});
 			$("#0").click(function() 
