@@ -233,7 +233,7 @@
 				$("#movielist").html("");
 				var search = $("#search_val").val();
 				var parameter = "&query=" + search + "&page=1";
-				var url = "https://api.themoviedb.org/3/search/keyword?api_key=" + api_key + parameter;
+				var url = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + parameter;
 				searchMovie(url);
 				$('.pagination').show();
 			});
