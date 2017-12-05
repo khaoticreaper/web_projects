@@ -189,7 +189,9 @@
 			<!-- script to display the movies on the page -->
 			<script id="movie_list_template" type="text/template">
 			{{#results}}
-			<b>Total Results:</b> {{total_results}}
+				<h3>Total Results: {{total_results}}</h3>
+			{{/results}}
+			{{#results}}
 			<div class="movie_list_item" id="{{id}}">
 				<div class="movie_list_itemheader" data-movieid="{{id}}">
 					<img class='thumbnail' src='https://image.tmdb.org/t/p/original{{poster_path}}'/>
