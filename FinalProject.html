@@ -232,7 +232,7 @@
 																{{#credits}}
 																	{{#cast}}
 																		<li style="list-style-type: circle; list-style-position: inside;">
-																			<a href="https://api.themoviedb.org/3/person/{{id}}?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US" class="cast_link">{{name}}</a>
+																			<a href="https://api.themoviedb.org/3/person/{{id}}?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US"><a href="http://www.imdb.com/name/{{imdb_id}}">{{name}}</a></a>
 																			(<u>Played As</u>: {{character}})
 																		</li>
 																	{{/cast}}
@@ -377,7 +377,14 @@
 			 });
 			}
 		</script>
-		
+		<script>
+		function cast_details(personid)
+		{
+			$.getJSON("https://api.themoviedb.org/3/person/" + personid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US", function (jsondata)
+			document.getElementById("cast").innerHTML = "Name: " +  + " " + obj.last_name + "<br>" +
+"Location: " + obj.location;
+		}
+		</script>
 		<!-- script for the grid and list views -->
 		<script>
 			$(function(){
