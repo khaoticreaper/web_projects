@@ -224,7 +224,17 @@
 								<li><b>&nbsp;<u>IMDB:</u> </b><a href="http://www.imdb.com/title/{{imdb_id}}" target="_blank">Visit</a></br></li>
 								<li><b>&nbsp;<u>Homepage:</u> </b><a href="{{homepage}}" target="_blank">Visit</a></br></li>
 								<li><b>&nbsp;<u>Tagline:</u> </b>{{tagline}}</br></li>
-								<li><b>&nbsp;<u>Cast Name:</u> </b>{{#credits}}{{#cast}}{{name}}{{/cast}}{{/credits}}</br></li>
+								<li><b>&nbsp;<u>Cast Name:</u> 
+															</b>
+																<ul>
+																	<li style="list-style-type: circle">{{#credits}}
+																		{{#cast}}
+																			{{name}}
+																		{{/cast}}
+																	{{/credits}}</li>
+																</ul>
+															</br>
+								</li>
 							</ul>							
 						</div>
 						<button style="text-align: center" class="button" id="castBtn" type="button">See Cast</button>
