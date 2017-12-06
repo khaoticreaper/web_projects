@@ -87,12 +87,11 @@
 													<li><button class="button" id="list" type="button">List</button></li>
 												</ul>
 											</div>
-										</div>			
-										<div id="maincontent">	
-											<div id="display_results"></div>
+										</div>											
+										<div id="maincontent">
 											<div id="movielist" layout="grid"></div>
-										</div>
-										<div id="movie_details"></div>
+										</div>										
+										<div id="movie_details"></div>										
 										<div id="navigation">	
 											<div class="line" id="pages">
 												<ul class="pagination">
@@ -182,10 +181,7 @@
 			<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
 			<!-- script to display the movies on the page -->
-			<script id="display_results type="text/template">
-			<p><h3 id="display_results"><u>Total Results</u>: {{#}}{{total_results}}{{/}}</h3></p>
-			<script>
-			<script id="movie_list_template" type="text/template">				
+			<script id="movie_list_template" type="text/template">	
 			{{#results}}
 			<div class="movie_list_item" id="{{id}}">
 				<div class="movie_list_itemheader" data-movieid="{{id}}">
@@ -194,7 +190,7 @@
 					</br>
 					</br>
 					</br>
-						<h2 style='text-align: center'><b><u>{{title}}</u></b></h2>
+						<h2 style='text-align: center'>{{title}}</h2>
 					</div>
 				</div>
 				<div class='movie_details' style='display:none'></div>
@@ -204,26 +200,48 @@
 		<!-- script to display the movies details on the page -->
 		<script id="movie_details_template" type="text/template">
 			<div>
-				<div class="flex" id="comma_container">
-						<div>
+				<input type="button" id="btnHide" value="Close"/>
+			</div>
+			<div>
+				<div class="flex" id="overview-flex">
+					<img id="poster" src='https://image.tmdb.org/t/p/original{{poster_path}}'/>
+                    <div id="overview">
+						<h2 style="text-align: center" id="title_format">{{title}}</h2>
+						<h3 style="text-align: center" id="title_format">Overview</h3>
+						<p style="text-align: center">{{overview}}</p>
+						<hr>
+						<div id="comma_container">
 							</br>
-							<b>&nbsp;<u>Release Date:</u> </b>{{release_date}}</br>
-							<b>&nbsp;<u>Language:</u> </b>{{#spoken_languages}}<span>{{name}}</span>{{/spoken_languages}}</br>
-							<b>&nbsp;<u>Genres:</u> </b>{{#genres}}<span>{{name}}</span>{{/genres}}</br>
-							<b>&nbsp;<u>Vote Average:</u> </b>{{vote_average}} out of 10.0</br>							
-							<b>&nbsp;<u>Status:</u> </b>{{status}}</br>
-							<b>&nbsp;<u>Runtime:</u> </b>{{runtime}} min</br>
-							<b>&nbsp;<u>Revenue: $</u> </b>{{revenue}}</br>
-							<b>&nbsp;<u>Production Companies: </u> </b>{{#production_companies}}<span>{{name}}</span>{{/production_companies}}</br>
-							<b>&nbsp;<u>IMDB:</u> </b><a href="http://www.imdb.com/title/{{imdb_id}}" target="_blank">Visit</a></br>
-							<b>&nbsp;<u>Homepage:</u> </b><a href="{{homepage}}" target="_blank">Visit</a></br>
-							<b>&nbsp;<u>Tagline:</u> </b>{{tagline}}</br>
-							</br>
-							<h3>&nbsp;<u>Overview</u></h3>
-							<p>{{overview}}</p>
+							<ul>
+								<li><b>&nbsp;<u>Release Date:</u> </b>{{release_date}}</br></li>
+								<li><b>&nbsp;<u>Language:</u> </b>{{#spoken_languages}}<span>{{name}}</span>{{/spoken_languages}}</br></li>
+								<li><b>&nbsp;<u>Genres:</u> </b>{{#genres}}<span>{{name}}</span>{{/genres}}</br></li>
+								<li><b>&nbsp;<u>Vote Average:</u> </b>{{vote_average}} out of 10.0</br></li>							
+								<li><b>&nbsp;<u>Status:</u> </b>{{status}}</br></li>
+								<li><b>&nbsp;<u>Runtime:</u> </b>{{runtime}} min</br></li>
+								<li><b>&nbsp;<u>Revenue: $</u> </b>{{revenue}}</br></li>
+								<li><b>&nbsp;<u>Production Companies: </u> </b>{{#production_companies}}<span>{{name}}</span>{{/production_companies}}</br></li>
+								<li><b>&nbsp;<u>IMDB:</u> </b><a href="http://www.imdb.com/title/{{imdb_id}}" target="_blank">Visit</a></br></li>
+								<li><b>&nbsp;<u>Homepage:</u> </b><a href="{{homepage}}" target="_blank">Visit</a></br></li>
+								<li><b>&nbsp;<u>Tagline:</u> </b>{{tagline}}</br></li>
+							</ul>							
 						</div>
+						<button style="text-align: center" class="button" id="castBtn" type="button">See Cast</button>
+						<div id="cast"></div>
+					</div>
 					<div style="clear:both"></div>
 				</div>
+			</div>
+		</script>
+		<!-- script to display the cast details on the page -->
+		<script id="cast_template" type="text/template">
+			<div class="flex" id="cast_temp">
+				<b>Cast Members:</b>
+				{{#credits}}
+					{{#cast}}
+						{{name}}
+					{{/cast}}
+				{{/credits}}
 			</div>
 		</script>
 		<!-- script to set functionality of buttons and links on the site -->
@@ -317,12 +335,18 @@
 				searchMovie(url);
 				$('.pagination').hide();
 			});
+			$("#castBtn").click(function ()
+			{
+				$("#cast").html("");
+				var url = "https://api.themoviedb.org/3/movie/" + movieid + "/credits?api_key=" + api_key;
+				getCast(url);
+			});
 			});
 			<!-- script to search for the movie and display it in proper layout -->
 			function searchMovie(servicePoint)
 			{
 			 $.getJSON(servicePoint, function (jsonData)
-			 {				
+			 {		
 				var template = $('#movie_list_template').html();
 				var html = Mustache.render(template, jsonData);
 				$("#movielist").append(html);
@@ -346,25 +370,55 @@
 			 });
 			}
 			<!-- script for getting the movie details from designated site-->
-			function getmovie_details(movieid, div)
+			function getmovie_details(movieid)
 			{
-
-			 $.getJSON("https://api.themoviedb.org/3/movie/" + movieid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US", function (jsonData)
+			 $.getJSON("https://api.themoviedb.org/3/movie/" + movieid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&append_to_response=credits", 
+			 function (jsonData)
 			 {
 				$("#movie_details").html("");
 				var template = $('#movie_details_template').html();
 				var html = Mustache.render(template, jsonData);
-				$(div).html(html);
-				$(div).slideToggle();
-						 
+				$("#movie_details").html(html);
+				$("#movie_details").fadeIn();						 
 				$("#btnHide").click(function ()
 				{
-					$("#movie_details").slideToggle();
+					$("#movie_details").fadeOut();
 				});
 
 			 });
 			}
+			function getCast(servicePoint)
+			{
+			 $.getJSON(servicePoint, function (jsonData)
+			 {		
+				var template = $('#cast_template').html();
+				var html = Mustache.render(template, jsonData);
+				$("#cast").append(html);
+				 $("castBtn").on('click', function () 
+				 { 
+					div=$(this).next();
+					getcast_details($(this).attr("data-movieid"), div);
+				 });
+			 });			 
+			}
+			function getcast_details(castid)
+			{
+			 $.getJSON("https://api.themoviedb.org/3/person/" + movieid + "/movie_credits?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US", 
+			 function (jsonData)
+			 {
+				$("#cast").html("");
+				var template = $('#casttemplate').html();
+				var html = Mustache.render(template, jsonData);
+				$("#cast").html(html);
+				$("#cast").fadeIn();	
+				$("#castBtn").click(function ()
+				{
+					$("#cast").fadeOut();
+				});
+			 });
+			}
 		</script>
+		
 		<!-- script for the grid and list views -->
 		<script>
 			$(function(){
@@ -383,6 +437,5 @@
 				});
 			});
 		</script>
-
 	</body>
 </html>
