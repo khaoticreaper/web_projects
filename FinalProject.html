@@ -197,28 +197,19 @@
 			</div>
 			{{/results}}
 		</script>
-		<script id="movie_list_template" type="text/template">	
+		<script id="class_list_template" type="text/template">	
 			{{#results}}
-			<div class="movie_list_item" id="{{id}}">
-				<div class="movie_list_itemheader" data-movieid="{{id}}">
-					<img class='thumbnail' src='https://image.tmdb.org/t/p/original{{poster_path}}'/>
-					<div class='card'>
-					</br>
-					</br>
-					</br>
-						<h2 style='text-align: center'>{{title}}</h2>
-					</div>
-				</div>
-				<div class='movie_details' style='display:none'></div>				
-				<div class="cast_info" id="{{#credits}}{{#cast}}{{id}}{{/cast}}{{/credits}}">
+			<div id="{{id}}">
+				<div class="cast_list" data-castid="{{#credits}}{{#cast}}{{id}}{{/cast}}{{/credits}}">		
 					<img class='thumbnail' src=''/>
 					<h2 style='text-align: center'>{{name}}</h2>
 					<h2 style='text-align: center'>Birthdate: {{birthday}}</h2>
 					<p style='text-align: center'>Biography: {{biography}}</p>
 					<h2 style='text-align: center'>IMDB Profile: <a href="http://www.imdb.com/name/{{imbd_id}}"> Click here</a></h2>
 				</div>
-				<div class='getcast_details' style='display:none'</div>
-			</div>			
+				<div class='getcast_details' style='display:none'></div>
+			</div>
+			
 			{{/results}}
 		</script>
 		<!-- script to display the movies details on the page -->
@@ -375,6 +366,8 @@
 			 {		
 				var template = $('#movie_list_template').html();
 				var html = Mustache.render(template, jsonData);
+				var template2 = $('#cast_list_template').html();
+				var html = Mustache.render(template2, jsonData);
 				$("#movielist").append(html);
 				if ($("#movielist").attr("layout")=="list") 
 				{
@@ -396,7 +389,7 @@
 				 $(".cast_list").on('click', function()
 				 {
 					div=$(this).next();
-					getcast($(this).attr("data-castid"), div);
+					getcast_details($(this).attr("data-castid"), div);
 				 });
 			 });
 			}
