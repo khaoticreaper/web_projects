@@ -197,21 +197,6 @@
 			</div>
 			{{/results}}
 		</script>
-		<!-- <script id="cast_list_template" type="text/template">	
-			{{#results}}
-			<div id="{{id}}">
-				<div class="cast_list" data-castid="{{#credits}}{{#cast}}{{id}}{{/cast}}{{/credits}}">		
-					<img class='thumbnail' src=''/>
-					<h2 style='text-align: center'>{{name}}</h2>
-					<h2 style='text-align: center'>Birthdate: {{birthday}}</h2>
-					<p style='text-align: center'>Biography: {{biography}}</p>
-					<h2 style='text-align: center'>IMDB Profile: <a href="http://www.imdb.com/name/{{imbd_id}}"> Click here</a></h2>
-				</div>
-				<div class='getcast_details' style='display:none'></div>
-			</div>
-			
-			{{/results}}
-		</script> -->
 		<!-- script to display the movies details on the page -->
 		<script id="movie_details_template" type="text/template">
 			<div>
@@ -254,24 +239,43 @@
 																{{/credits}}
 															</ul>
 														</br>
+						
+						<button style="text-align: center" class="button" id="castBtn" type="button">See Cast</button>
+						<div id="cast"></div>
 					</div>
 					<div style="clear:both"></div>
 				</div>
 			</div>
 		</script>
+		<script>
+			
+		</script>
 		<script id="cast_details_template" type="text/template">
-			<div>
-				<input type="button" id="castHide" value="Close"/>
-			</div>
-			<div>
-				<div class="flex" id="overview-flex">
-					<img class='thumbnail' src=''/>
-					<h2 style='text-align: center'>{{name}}</h2>
-					<h2 style='text-align: center'>Birthdate: {{birthday}}</h2>
-					<p style='text-align: center'>Biography: {{biography}}</p>
-					<h2 style='text-align: center'>IMDB Profile: <a href="http://www.imdb.com/name/{{imbd_id}}"> Click here</a></h2>
+			<div id="{{id}}">
+				<div class="cast_item_header" data-movieid="{{id}}">
+					<img class='thumbnail' src='https://api.themoviedb.org/3/person/{{profile_path}}'/>
+					<div class='card'>
+					</br>
+					</br>
+					</br>
+						<h2 style='text-align: center'>{{name}}</h2>
+					</div>
 				</div>
-				<div style="clear:both"></div>
+				<div class='cast' style='display:none'></div>
+			</div>
+		</script>
+		<!-- script to display the cast details on the page -->
+		<script id="cast_list_template" type="text/template">
+			<div>
+				<input type="button" id="btnHide" value="Close"/>
+			</div>
+			<div class="flex" id="cast_temp">
+				<b>Cast Members:</b>
+				{{#credits}}
+					{{#cast}}
+						{{name}}
+					{{/cast}}
+				{{/credits}}
 			</div>
 		</script>
 		<!-- script to set functionality of buttons and links on the site -->
@@ -358,6 +362,14 @@
 				searchMovie(url);
 				$('.pagination').hide();
 			});
+			$("#castBtn").click(function ()
+			{
+				$("#cast").html("");
+				var search = $("#search_val").val();
+				var parameter = "&query=" + search + "&page=1";
+				var url = "https://api.themoviedb.org/3/movie/" + movieid + "?api_key=" + api_key + "&append_to_response=credits";
+				searchCast(url);
+			});
 			});
 			<!-- script to search for the movie and display it in proper layout -->
 			function searchMovie(servicePoint)
@@ -366,8 +378,6 @@
 			 {		
 				var template = $('#movie_list_template').html();
 				var html = Mustache.render(template, jsonData);
-				var template2 = $('#cast_list_template').html();
-				var html = Mustache.render(template2, jsonData);
 				$("#movielist").append(html);
 				if ($("#movielist").attr("layout")=="list") 
 				{
@@ -386,17 +396,13 @@
 					div=$(this).next();
 					getmovie_details($(this).attr("data-movieid"), div);
 				 });
-				 $(".cast_list").on('click', function()
-				 {
-					div=$(this).next();
-					getcast_details($(this).attr("data-castid"), div);
-				 });
 			 });
 			}
 			<!-- script for getting the movie details from designated site-->
 			function getmovie_details(movieid)
 			{
-			 $.getJSON("https://api.themoviedb.org/3/movie/" + movieid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&append_to_response=credits", function (jsonData) 			 
+			 $.getJSON("https://api.themoviedb.org/3/movie/" + movieid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&append_to_response=credits", 
+			 function (jsonData)
 			 {
 				$("#movie_details").html("");
 				var template = $('#movie_details_template').html();
@@ -409,22 +415,38 @@
 				});
 			 });
 			}
+			<!-- script to get cast detail for the movie that is being looked for -->
+			function searchCast(servicePoint)
+			{
+			 $.getJSON(servicePoint, function (jsonData)
+			 {		
+				var template = $('#cast_list_template').html();
+				var html = Mustache.render(template, jsonData);
+				$("#cast").append(html);
+				 $("cast_item_header").on('click', function () 
+				 { 
+					div=$(this).next();
+					getcast_details($(this).attr("data-castid"), div);
+				 });
+			 });			 
+			}
 			function getcast_details(castid)
 			{
-			 $.getJSON("https://api.themoviedb.org/3/person/" + castid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US", 
+			 $.getJSON("https://api.themoviedb.org/3/person/" + castid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US",
+			 <!-- "https://api.themoviedb.org/3/person/" + movieid + "/movie_credits?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US",  -->
 			 function (jsonData)
 			 {
-				$("#cast_details").html("");
+				$("#cast").html("");
 				var template = $('#cast_details_template').html();
 				var html = Mustache.render(template, jsonData);
-				$("#cast_details").html(html);
-				$("#cast_details").fadeIn();
-				$("#castHide").click(function ()
+				$("#cast").html(html);
+				$("#cast").fadeIn();	
+				$("#castBtn").click(function ()
 				{
-					$("#cast_details").fadeOut();
+					$("#cast").fadeOut();
 				});
 			 });
-			}	
+			}
 		</script>
 		
 		<!-- script for the grid and list views -->
