@@ -224,6 +224,7 @@
 								<li><b>&nbsp;<u>IMDB:</u> </b><a href="http://www.imdb.com/title/{{imdb_id}}" target="_blank">Visit</a></br></li>
 								<li><b>&nbsp;<u>Homepage:</u> </b><a href="{{homepage}}" target="_blank">Visit</a></br></li>
 								<li><b>&nbsp;<u>Tagline:</u> </b>{{tagline}}</br></li>
+								<li><b>&nbsp;<u>Cast Name:</u> </b>{{#credits}}{{#cast}}{{name}}{{/cast}}{{/credits}}</br></li>
 							</ul>							
 						</div>
 						<button style="text-align: center" class="button" id="castBtn" type="button">See Cast</button>
@@ -236,7 +237,7 @@
 		<script id="cast_details_template" type="text/template">
 			<div id="{{id}}">
 				<div class="cast_item_header" data-movieid="{{id}}">
-					<img class='thumbnail' src='{{profile_path}}'/>
+					<img class='thumbnail' src='https://api.themoviedb.org/3/person/{{profile_path}}'/>
 					<div class='card'>
 					</br>
 					</br>
@@ -349,7 +350,9 @@
 			$("#castBtn").click(function ()
 			{
 				$("#cast").html("");
-				var url = "https://api.themoviedb.org/3/movie/" + movieid + "/credits?api_key=" + api_key;
+				var search = $("#search_val").val();
+				var parameter = "&query=" + search + "&page=1";
+				var url = "https://api.themoviedb.org/3/movie/" + movieid + "?api_key=" + api_key + "&append_to_response=credits";
 				searchCast(url);
 			});
 			});
@@ -408,13 +411,13 @@
 				 $("cast_item_header").on('click', function () 
 				 { 
 					div=$(this).next();
-					getcast_details($(this).attr("data-movieid"), div);
+					getcast_details($(this).attr("data-castid"), div);
 				 });
 			 });			 
 			}
 			function getcast_details(castid)
 			{
-			 $.getJSON("https://api.themoviedb.org/3/person/" + person_id + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US",
+			 $.getJSON("https://api.themoviedb.org/3/person/" + castid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US",
 			 <!-- "https://api.themoviedb.org/3/person/" + movieid + "/movie_credits?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US",  -->
 			 function (jsonData)
 			 {
