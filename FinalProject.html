@@ -232,8 +232,10 @@
 																{{#credits}}
 																	{{#cast}}
 																		<li style="list-style-type: circle; list-style-position: inside;">
-																			<a href="https://api.themoviedb.org/3/person/{{id}}?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US"><a href="http://www.imdb.com/name/{{imdb_id}}">{{name}}</a></a>
-																			(<u>Played As</u>: {{character}})
+																			<a href="https://api.themoviedb.org/3/person/{{id}}?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US">
+																				{{name}}
+																			</a>
+																			(<u>Played As</u>: <a href="http://www.imdb.com/name/{{imdb_id}}">{{character}}</a>)
 																		</li>
 																	{{/cast}}
 																{{/credits}}
