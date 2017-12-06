@@ -194,7 +194,6 @@
 					</div>
 				</div>
 				<div class='movie_details' style='display:none'></div>
-				<div class='cast_details' style='display:none'></div>
 			</div>
 			{{/results}}
 		</script>
@@ -240,9 +239,6 @@
 																{{/credits}}
 															</ul>
 														</br>
-						
-						<button style="text-align: center" class="button" id="castBtn" type="button">See Cast</button>
-						<div id="cast"></div>
 					</div>
 					<div style="clear:both"></div>
 				</div>
@@ -363,26 +359,11 @@
 			<!-- script for getting the movie details from designated site-->
 			function getmovie_details(movieid)
 			{
-			 $.getJSON("https://api.themoviedb.org/3/movie/" + movieid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&append_to_response=credits", function (jsonData1) 			 
+			 $.getJSON("https://api.themoviedb.org/3/movie/" + movieid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&append_to_response=credits", function (jsonData) 			 
 			 {
-				function getcast_details(castid)
-				{
-					$.getJSON("https://api.themoviedb.org/3/person/" + castid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US", 	 function (jsonData2)
-					{
-						$("#cast_details").html("");
-						var template = $('#cast_details_template').html();
-						var html = Mustache.render(template, jsonData2);
-						$("#cast_details").html(html);
-						$("#cast_details").fadeIn();						 
-						$("#cast_link").click(function ()
-						{
-							$("#cast_details").fadeOut();
-						});
-					}
-				}
 				$("#movie_details").html("");
 				var template = $('#movie_details_template').html();
-				var html = Mustache.render(template, jsonData1);
+				var html = Mustache.render(template, jsonData);
 				$("#movie_details").html(html);
 				$("#movie_details").fadeIn();						 
 				$("#btnHide").click(function ()
@@ -390,9 +371,7 @@
 					$("#movie_details").fadeOut();
 				});
 			 });
-			}		
-			 
-			 <!-- $.getJSON("https://api.themoviedb.org/3/movie/" + movieid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&append_to_response=credits", 			 function (jsonData)			 {				$("#movie_details").html("");				var template = $('#movie_details_template').html();				var html = Mustache.render(template, jsonData);				$("#movie_details").html(html);				$("#movie_details").fadeIn();						 				$("#btnHide").click(function ()				{					$("#movie_details").fadeOut();				});			 }); 			}					});			}-->
+			}	
 		</script>
 		
 		<!-- script for the grid and list views -->
