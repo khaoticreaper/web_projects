@@ -226,17 +226,15 @@
 								<li><b>&nbsp;<u>Tagline:</u> </b>{{tagline}}</br></li>
 								</ul>
 								<b>&nbsp;<u>Cast Name:</u> 
-															</b>
-																<ul>
-																	<li style="list-style-type: circle; list-style-position: inside;">{{#credits}}
-																		{{#cast}}
-																			{{name}}
-																		{{/cast}}
-																	{{/credits}}</li>
-																</ul>
-															</br>
-								
-														
+														</b>
+															<ul>
+																{{#credits}}
+																	{{#cast}}
+																		<li style="list-style-type: circle; list-style-position: inside;">{{name}}</li>
+																	{{/cast}}
+																{{/credits}}
+															</ul>
+														</br>
 						</div>
 						<button style="text-align: center" class="button" id="castBtn" type="button">See Cast</button>
 						<div id="cast"></div>
