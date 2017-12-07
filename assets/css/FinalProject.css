@@ -45,6 +45,11 @@ text-align: center;
 column-count: 2;
 column-gap: 20px;
 }
+.clsbutton
+{
+position:fixed;
+left:100px;
+}
 .color{
 background:#ffcce9
 }
