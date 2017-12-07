@@ -49,6 +49,26 @@ column-gap: 20px;
 {
 position:fixed;
 right:155px;
+background: -webkit-linear-gradient(#D4D9DD, #f4f4f4 30%, #e5e5e5);
+border: 2px solid #aaa;
+color: #444;
+font-size: inherit;
+min-width: 2em;
+font-family: sans-serif;
+text-decoration: none;  
+}
+.clsbutton:hover 
+{
+-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #D4D9DD);
+border-color: #999;
+color: #222;
+}
+.clsbutton:active 
+{
+-webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+background: #ebebeb -webkit-linear-gradient(#474f51, #D4D9DD 40%, #474f51);
+color: #333;
 }
 .color{
 background:#ffcce9
