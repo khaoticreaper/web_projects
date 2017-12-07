@@ -12,7 +12,7 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		
+		<link rel="dns-prefetch" href="https://api.themoviedb.org">
 		<!-- created a seperate stylesheet for this specific term project -->
 		<link rel="stylesheet" href="assets/css/FinalProject.css"/>
 	</head>	
@@ -194,13 +194,14 @@
 					</div>
 				</div>
 				<div class='movie_details' style='display:none'></div>
+				<div class='cast-container' style='display:none'></div>
 			</div>
 			{{/results}}
 		</script>
 		<!-- script to display the movies details on the page -->
 		<script id="movie_details_template" type="text/template">
 			<div>
-				<input type="button" id="btnHide" value="Close"/>
+				<input type="button" id="btnHide" value="Close" class="button" style="position: fixed; display: inline-block;"/>
 			</div>
 			<div>
 				<div class="flex" id="overview-flex">
@@ -226,28 +227,25 @@
 								<li><b>&nbsp;<u>Tagline:</u> </b>{{tagline}}</br></li>
 								</ul>
 						</div>
-								<b>&nbsp;<u>Cast Name:</u> 
-														</b>
-															<ul>
-																{{#credits}}
-																	{{#cast}}
-																		<li style="list-style-type: circle; list-style-position: inside;">
-																			<a href="https://api.themoviedb.org/3/person/{{id}}?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US">
-																				{{name}}
-																			</a>
-																			(<u>Played As</u>: <a href="http://www.imdb.com/name/{{imdb_id}}">{{character}}</a>)
-																		</li>
-																	{{/cast}}
-																{{/credits}}
-															</ul>
-														</br>
-						<div id="cast"></div>
+						<div id="cast_list">
+								 <b>&nbsp;<u>Cast Name:</u> 
+													</b>
+														<ul>
+															{{#credits}}
+																{{#cast}}
+																	<li>
+																		{{name}} (<u>Played As</u>: {{character}}</a>)
+																	</li>
+																{{/cast}}
+															{{/credits}}
+														</ul>
+													</br>
+													</div>
+								<button class="button" id="castbtn" type="button" onclick="window.open('http://www.imdb.com/title/{{imdb_id}}/fullcredits?ref_=tt_ov_st_sm');">Cast Full Details</button>
 					</div>
 					<div style="clear:both"></div>
 				</div>
 			</div>
-		</script>
-		<script>			
 		</script>
 		<!-- script to set functionality of buttons and links on the site -->
 		<script type="text/javascript">
@@ -378,14 +376,6 @@
 				});
 			 });
 			}
-		</script>
-		<script>
-		function cast_details(personid)
-		{
-			$.getJSON("https://api.themoviedb.org/3/person/" + personid + "?api_key=8553e963afcc68bc0f2cd9e0fea57612&language=en-US", function (jsondata)
-			document.getElementById("cast").innerHTML = "Name: " +  + " " + obj.last_name + "<br>" +
-"Location: " + obj.location;
-		}
 		</script>
 		<!-- script for the grid and list views -->
 		<script>

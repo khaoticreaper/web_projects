@@ -36,6 +36,15 @@ display: none;
 width: 32%;
 text-align: center;
 }
+#cast_list ul
+{
+-moz-column-count: 2;
+-moz-column-gap: 20px;
+-webkit-column-count: 2;
+-webkit-column-gap: 20px;
+column-count: 2;
+column-gap: 20px;
+}
 .color{
 background:#ffcce9
 }
@@ -45,12 +54,12 @@ content: ", "
 }
 #comma_container ul
 {
-	-moz-column-count: 3;
-    -moz-column-gap: 20px;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 20px;
-    column-count: 3;
-    column-gap: 20px;	
+-moz-column-count: 3;
+-moz-column-gap: 20px;
+-webkit-column-count: 3;
+-webkit-column-gap: 20px;
+column-count: 3;
+column-gap: 20px;	
 }
 #display_results
 {
