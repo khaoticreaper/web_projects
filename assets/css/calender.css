@@ -1,0 +1,39 @@
+@charset "utf-8";
+table {
+	font-size: 13px;
+	color: #000;
+	border: 3px solid #ddd;
+	background-color: #fff;
+}
+
+
+table caption {
+	color: #000;
+}
+
+tr {
+	background-color: #eee;
+}
+
+
+tr.dow {
+	background-color: #ccc;
+}
+
+td {
+	text-align: center;
+}
+
+
+td.hol {
+	color: #dc143c;
+}
+
+td.sun {
+	color: #dc143c;
+}
+
+
+td.sat {
+	color: #0000cd;
+}
